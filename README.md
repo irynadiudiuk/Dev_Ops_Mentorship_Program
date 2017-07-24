@@ -27,11 +27,11 @@ To be able to set up network adapters we need to have the following things set u
  * In this scenario we are going to assign a static ip address for our network interface. For this we need to set up both Virtual box and our VM. Below are the screenshots:  
  
  
-| Virtual Box         | Configuration File         |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+|Virtual Box|
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2000.34.52.png) 
+
+|Configuration File| 
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2000.36.44.png) 
 
 
 A network daemon that runs on the [Node.js][node] platform and
