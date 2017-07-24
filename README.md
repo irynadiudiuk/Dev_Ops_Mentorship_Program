@@ -2,21 +2,21 @@
 Linux_Fundamentals_Mentorship_Program
 
 **Basics of Networking in Linux**
-======
+-------
 *Topics covered:*
 
-1. Environments (VMs).
+1. Environment (VMs)
 2. Network Adapter Configuration for Centos (7 and 6.5)
 3. Network Adapter Configuration for Ubuntu (16.04)
 4. Networking Services Restart
 
-
-Environment
------------
-To be able to set up network adapters we need to have the following set up:
-    1. [Virtual box installed](https://www.google.com) for an appropriate host machine.
-    2. VM downloaded and installed into Virtual box. We are going to use three images 
-
+***Environment***
+-------------
+To be able to set up network adapters we need to have the following things set up:
+ * [Virtual box installed](https://www.google.com) for an appropriate host machine
+ * VM downloaded and installed into Virtual box. We are going to use three images [Ubuntu](https://www.ubuntu.com/download), [Centos 7](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso) and [Centos 6.5](http://mirror.nsc.liu.se/centos-store/6.5/isos/x86_64/)
+ * For all of the machines we had NAT (Network Address Translation) network adapter choosen as the default interface.
+ *
 
 A network daemon that runs on the [Node.js][node] platform and
 listens for statistics, like counters and timers, sent over [UDP][udp] or
