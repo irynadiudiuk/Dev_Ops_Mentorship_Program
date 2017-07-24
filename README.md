@@ -11,8 +11,11 @@ Linux_Fundamentals_Mentorship_Program
 4. Networking Services Restart
 
 
-*Environment*
-
+Environment
+-----------
+To be able to set up network adapters we need to have the following set up:
+    1. [Virtual box installed](https://www.google.com) for an appropriate host machine.
+    2. VM downloaded and installed into Virtual box. We are going to use three images 
 
 
 A network daemon that runs on the [Node.js][node] platform and
