@@ -22,6 +22,7 @@ To be able to set up network adapters we need to have the following things set u
 -------------
  * type ```ip a``` command to view availabe interfaces. **lo** - is the default virtual network interface that a computer uses to communicate with itself. **enp0s3** - the defualt name of the interface for the NAT adapter. In case the second adapter is in "cable connected" state it's default name is **enp0s8** and it is dispalyed as the third network interface.
  Here is the example of the outout when two adapters are turned on:
+ ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2000.24.00.png)
  
  * notice that in Centos (7 and 6.5) networks configuration files are stored on the following path: _cd /etc/sysconfig/network-scripts/;
  * to edit the file for the second interface and choose it to either use a DHCP server provided by Virtual box or a static ip address we need to open the file with available text editor. 
