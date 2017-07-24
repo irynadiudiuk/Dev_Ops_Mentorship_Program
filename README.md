@@ -1,7 +1,4 @@
-# Linux_Fundamentals
-Linux_Fundamentals_Mentorship_Program
-
-**Basics of Networking in Linux**
+### **Basics of Networking in Linux** ###
 -------
 *Topics covered:*
 
@@ -21,11 +18,20 @@ To be able to set up network adapters we need to have the following things set u
 ***Network Adapter Configuration for Centos (7 and 6.5)***
 -------------
  * type ```ip a``` command to view availabe interfaces. **lo** - is the default virtual network interface that a computer uses to communicate with itself. **enp0s3** - the defualt name of the interface for the NAT adapter. In case the second adapter is in "cable connected" state it's default name is **enp0s8** and it is dispalyed as the third network interface.
- Here is the example of the outout when two adapters are turned on:
+ Here is the example of the output when two adapters are turned on:
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2000.24.00.png)
  
- * notice that in Centos (7 and 6.5) networks configuration files are stored on the following path: _cd /etc/sysconfig/network-scripts/;
- * to edit the file for the second interface and choose it to either use a DHCP server provided by Virtual box or a static ip address we need to open the file with available text editor. 
+ * notice that in Centos (7 and 6.5) networks configuration files are stored on the following path: 
+ _cd /etc/sysconfig/network-scripts/_;
+ * to edit the file for the second interface and choose it to either use a DHCP server provided by Virtual box or a static ip address we need to open the file with available text editor using the following command: ``` sudo vim ifcfg-enp0s8``` (as **ifcfg-enp0s8** is the name of the file for the third, in our case, host-only network interface. 
+ * In this scenario we are going to assign a static ip address for our network interface. For this we need to set up both Virtual box and our VM. Below are the screenshots:  
+ 
+ 
+| Virtual Box         | Configuration File         |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 
 A network daemon that runs on the [Node.js][node] platform and
