@@ -2,9 +2,10 @@
 -------
 *Topics covered:*
 
-1. Environment (VMs)
-2. Network Adapter Configuration for Centos (7 and 6.5)
-3. Network Adapter Configuration for Ubuntu (16.04)
+1. Environment (VMs);
+2. Network Adapter Configuration for Centos 7;
+3. Network Adapter Configuration for Centos 6.5;
+4. Network Adapter Configuration for Ubuntu 16.04
 
 
 ***Environment***
