@@ -21,7 +21,7 @@ To be able to set up network adapters we need to have the following things set u
  * type ```ip a``` command to view availabe interfaces. **lo** - is the default virtual network interface that a computer uses to communicate with itself. **enp0s3** - the default name of the interface for the NAT adapter in CentOs 7. In case the second adapter is in "cable connected" state its default name is **enp0s8** and it is dispalyed as the third network interface.
  Here is an example of the output when two adapters are turned on:
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2000.24.00.png)
- * in Centos 7 network configuration files are stored on the following path: 
+ * in CentOs 7 network configuration files are stored on the following path: 
  ```/etc/sysconfig/network-scripts/```;
  * to edit the file for the second interface and choose it to either use a DHCP server provided by Virtual box or a static ip address we need to open the file with available text editor using the following command: ``` sudo vim ifcfg-enp0s8``` (as **ifcfg-enp0s8** is the name of the file for the third, in our case, host-only network interface. 
  * In this scenario we are going to assign a static ip address for our network interface. For this we need to set up both Virtual box and our VM. Below are the screenshots:  
@@ -46,7 +46,7 @@ https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-networkscripts-inte
 ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2010.29.06.png) 
 * in CentOs 6.5 network configuration files are stored on the following path: 
  ```/etc/sysconfig/network-scripts/```;
-* In CentOs 6.5 NAT interface adapter is called **eth0** and its configuration file ifcfg-eth0. For the secondary interface **eth1** a new file needs to be created, called **ifcfg-eth1**
+* In CentOs 6.5 NAT interface adapter is called **eth0** and its configuration file **ifcfg-eth0**. For the secondary interface **eth1** a new file needs to be created, called **ifcfg-eth1**
 * to edit the file for the second interface and choose it to either use a DHCP server provided by Virtual box or a static ip address we need to open the file with available text editor using the following command: ``` sudo vim ifcfg-eth1```. 
 * Last step is to restart network service. To do it on CentOs, type the command:  ```service network restart``` or ```sudo /etc/init.d/network restart```.
 
@@ -62,6 +62,7 @@ https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-networkscripts-inte
  ```/etc/network/``` in the file **interfaces**;
  * to edit the file for the second interface and choose it to either use a DHCP server provided by Virtual box or a static ip address we need to open the file with available text editor using the following command: ``` sudo vim /etc/network/interfaces``` 
  * In this scenario we are going to assign a static ip address for our network interface. Here is the screenshot from the file with secondary interface configured:
+ 
  |Configuration File| 
  ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2009.54.44.png) 
 
