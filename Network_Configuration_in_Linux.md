@@ -16,7 +16,7 @@ To be able to set up network adapters we need to have the following things set u
  * [Virtual box](https://www.google.com) installed for an appropriate host machine;
  * Appropriate ISO image for VM downloaded and installed into Virtual box. We are going to use three images [Ubuntu](https://www.ubuntu.com/download), [CentOs 7](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso) and [CentOs 6.5](http://mirror.nsc.liu.se/centos-store/6.5/isos/x86_64/);
  * For all of the machines we have NAT (Network Address Translation) network adapter choosen as the default interface;
- * We are going to configure host-only network adapter for a secondary network adapter.
+ * We are going to configure host-only network adapter for a secondary network adapter to avoid port forwarding while connecting via ssh to VMs. With host-only networking configuration our host machine is a part of new subnetwork it can see other VMs that are in this network and they can see each other and the host machine. 
 
 ***Network Adapter Configuration for CentOs 7***
 -------------
@@ -28,12 +28,8 @@ To be able to set up network adapters we need to have the following things set u
  * in CentOS 7 network configuration files are stored on the following path: 
  ```/etc/sysconfig/network-scripts/```;
  * to edit the file for the second interface and choose it to either use a DHCP server provided by Virtual box or a static ip address we need to open the file with available text editor using the following command: ``` sudo vim ifcfg-enp0s8``` (as **ifcfg-enp0s8** is the name of the file for the third, in our case, host-only network interface. 
- * In this scenario we are going to assign a static ip address for our network interface. For this we need to set up both Virtual box and our VM. Below are the screenshots:  
+ * In this scenario we are going to assign a static ip address for our network interface. For this we need to set up both Virtual box (turn on the host-only adapter from preferences option) and our VMs. Below is the screenshot of the configuration file of CentOS 7:  
  
- 
-|Virtual Box|
-![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2000.34.52.png) 
-
 |Configuration File| 
 ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2000.36.44.png) 
 
