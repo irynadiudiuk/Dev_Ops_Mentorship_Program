@@ -39,7 +39,7 @@ Here is a link for some more information on configuration of network adapter in 
 https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-networkscripts-interfaces.html
 
 
-* Last step is to restart network service. To do it on CentOS, type the command:  ```service network restart``` or ```sudo /etc/init.d/network restart```.
+* Last step is to restart network service. To do it on CentOS, type the command:  ```sudo service network restart``` or ```sudo /etc/init.d/network restart```.
 
 
 
@@ -50,7 +50,7 @@ https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-networkscripts-inte
  ```/etc/sysconfig/network-scripts/```;
 * In CentOS 6.5 NAT interface adapter is called **eth0** and its configuration file **ifcfg-eth0**. For the secondary interface **eth1** a new file needs to be created, called **ifcfg-eth1**
 * to edit the file for the second interface and choose it to either use a DHCP server provided by Virtual box or a static ip address we need to open the file with available text editor using the following command: ``` sudo vim ifcfg-eth1```. 
-* Last step is to restart network service. To do it on CentOs, type the command:  ```service network restart``` or ```sudo /etc/init.d/network restart```.
+* Last step is to restart network service. To do it on CentOs, type the command:  ```sudo service network restart``` or ```sudo /etc/init.d/network restart```.
 
 
 
