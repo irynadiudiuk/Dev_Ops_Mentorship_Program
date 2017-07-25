@@ -12,7 +12,7 @@
 -------------
 To be able to set up network adapters we need to have the following things set up:
  * [Virtual box](https://www.google.com) installed for an appropriate host machine;
- * Appropriate ISO image for VM downloaded and installed into Virtual box. We are going to use three images [Ubuntu](https://www.ubuntu.com/download), [Centos 7](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso) and [Centos 6.5](http://mirror.nsc.liu.se/centos-store/6.5/isos/x86_64/);
+ * Appropriate ISO image for VM downloaded and installed into Virtual box. We are going to use three images [Ubuntu](https://www.ubuntu.com/download), [CentOs 7](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso) and [CentOs 6.5](http://mirror.nsc.liu.se/centos-store/6.5/isos/x86_64/);
  * For all of the machines we have NAT (Network Address Translation) network adapter choosen as the default interface;
  * We are going to configure host-only network adapter for a secondary network adapter.
 
@@ -62,6 +62,7 @@ https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-networkscripts-inte
  ```/etc/network/``` in the file **interfaces**;
  * to edit the file for the second interface and choose it to either use a DHCP server provided by Virtual box or a static ip address we need to open the file with available text editor using the following command: ``` sudo vim /etc/network/interfaces``` 
  * In this scenario we are going to assign a static ip address for our network interface. Here is the screenshot from the file with secondary interface configured:
+ |Configuration File| 
  ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2009.54.44.png) 
 
 * Last step is to restart network service. To do it on Ubuntu, type the command:  ```sudo service networking restart``` or ```sudo /etc/init.d/networking restart```.
