@@ -21,8 +21,8 @@ To be able to set up network adapters we need to have the following things set u
  Here is the example of the output when two adapters are turned on:
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2000.24.00.png)
  
- * notice that in Centos (7 and 6.5) networks configuration files are stored on the following path: 
- _cd /etc/sysconfig/network-scripts/_;
+ * notice that in Centos (7 and 6.5) network configuration files are stored on the following path: 
+ ```/etc/sysconfig/network-scripts/```;
  * to edit the file for the second interface and choose it to either use a DHCP server provided by Virtual box or a static ip address we need to open the file with available text editor using the following command: ``` sudo vim ifcfg-enp0s8``` (as **ifcfg-enp0s8** is the name of the file for the third, in our case, host-only network interface. 
  * In this scenario we are going to assign a static ip address for our network interface. For this we need to set up both Virtual box and our VM. Below are the screenshots:  
  
@@ -37,6 +37,21 @@ Here is a link for some more information on configuration of network adapter in 
 https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-networkscripts-interfaces.html
 
 
-* last step is to restart network service ```service network restart```
+* Last step is to restart network service. To do it on CentOs, type the command:  ```service network restart``` or ```sudo /etc/init.d/network restart```.
 
 
+
+
+***Network Adapter Configuration for Ubuntu (16.04)***
+-------------
+ * type ```ip a``` command to view availabe interfaces. **lo** - is the default virtual network interface that a computer uses to communicate with itself. **enp0s3** - the defualt name of the interface for the NAT adapter. In case the second adapter is in "cable connected" state it's default name is **enp0s8** and it is dispalyed as the third network interface.
+ Here is the example of the output when two adapters are turned on:
+ ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2009.46.48.png)
+ 
+ * notice that in Ubuntu (16.04) network configuration files are stored on the following path: 
+ ```/etc/network/``` in the file **interfaces**;
+ * to edit the file for the second interface and choose it to either use a DHCP server provided by Virtual box or a static ip address we need to open the file with available text editor using the following command: ``` sudo vim /etc/network/interfaces``` 
+ * In this scenario we are going to assign a static ip address for our network interface. Here is the screenshot from the file with secondary interface configured:
+ ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2009.54.44.png) 
+
+* Last step is to restart network service. To do it on Ubuntu, type the command:  ```sudo service networking restart``` or ```sudo /etc/init.d/networking restart```.
