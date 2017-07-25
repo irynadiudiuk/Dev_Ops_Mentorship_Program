@@ -18,7 +18,9 @@ To be able to set up network adapters we need to have the following things set u
 
 ***Network Adapter Configuration for CentOs 7***
 -------------
- * type ```ip a``` command to view availabe interfaces. **lo** - is the default virtual network interface that a computer uses to communicate with itself. **enp0s3** - the default name of the interface for the NAT adapter in CentOs 7. In case the second adapter is in "cable connected" state its default name is **enp0s8** and it is dispalyed as the third network interface.
+ * type command:
+ ```ip a``` 
+ to view availabe interfaces. **lo** - is the default virtual network interface that a computer uses to communicate with itself. **enp0s3** - the default name of the interface for the NAT adapter in CentOs 7. In case the second adapter is in "cable connected" state its default name is **enp0s8** and it is dispalyed as the third network interface.
  Here is an example of the output when two adapters are turned on:
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2000.24.00.png)
  * in CentOs 7 network configuration files are stored on the following path: 
