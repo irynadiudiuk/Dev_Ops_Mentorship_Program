@@ -6,6 +6,8 @@
 2. Network Adapter Configuration for CentOS 7;
 3. Network Adapter Configuration for CentOS 6.5;
 4. Network Adapter Configuration for Ubuntu 16.04
+5. Results
+6. Resources
 
 
 ***Environment***
@@ -34,9 +36,6 @@ To be able to set up network adapters we need to have the following things set u
 
 |Configuration File| 
 ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2000.36.44.png) 
-
-Here is a link for some more information on configuration of network adapter in CentOS (7 and 6.5):
-https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-networkscripts-interfaces.html
 
 
 * Last step is to restart network service. To do it on CentOS, type the command:  ```sudo service network restart``` or ```sudo /etc/init.d/network restart```.
@@ -69,3 +68,14 @@ https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-networkscripts-inte
  ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2009.54.44.png) 
 
 * Last step is to restart network service. To do it on Ubuntu, type the command:  ```sudo service networking restart``` or ```sudo /etc/init.d/networking restart```.
+
+ 
+ ***Results*** 
+ 
+ As we have the second adapter configured, and since we have choosen this adapter to be host only interface, we have now our own subnetwork within our host machine. In this case, each VM has its own IP address (we have assigned it to be a static one, but it can be assigned dynamically by DHCP). There is no need for port forwarding in this case. Each VM has access to the Internet and can be accessed via ssh from the host machine and other VMs which are in the same network. 
+ 
+ ***Resources***
+ 
+ 1. Configuration of network adapter for CentOS (7 and 6.5): https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-networkscripts-interfaces.html
+ 2.Configuration of network adapter for Ubuntu: https://help.ubuntu.com/community/NetworkConfigurationCommandLine/Automatic
+ 
