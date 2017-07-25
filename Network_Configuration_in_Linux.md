@@ -10,7 +10,7 @@
 ***Environment***
 -------------
 To be able to set up network adapters we need to have the following things set up:
- * [Virtual box](https://www.google.com)installed for an appropriate host machine;
+ * [Virtual box](https://www.google.com) installed for an appropriate host machine;
  * Appropriate ISO image for VM downloaded and installed into Virtual box. We are going to use three images [Ubuntu](https://www.ubuntu.com/download), [Centos 7](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1611.iso) and [Centos 6.5](http://mirror.nsc.liu.se/centos-store/6.5/isos/x86_64/);
  * For all of the machines we have NAT (Network Address Translation) network adapter choosen as the default interface;
  * We are going to configure host-only network adapter for a secondary network adapter.
