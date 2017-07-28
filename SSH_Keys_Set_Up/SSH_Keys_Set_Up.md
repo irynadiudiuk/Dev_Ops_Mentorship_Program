@@ -2,12 +2,6 @@
 ### **Network Configuration in Linux** ###
 -------
 *Topics covered:
-rtfvyvyvbty
-
-yuubhubnunni
-
-
-
 
 
 1. SSHD;
