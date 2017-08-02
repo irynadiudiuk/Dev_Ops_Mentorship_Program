@@ -48,7 +48,20 @@ To configure authentification based on ssh keys the following steps should be ta
  * On Mac OS X, ssh-agent will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command: 
  
  ```/usr/bin/ssh-add -K ~/.ssh/id_rsa```
- * 
+ * When the agent starts, it creates a new directory in /tmp/ with restrictive permissions (0700), and creates it's socket there with similarly restrictive permissions (0600). Agent keys are usable by root user, however, they are only usable while the agent is running. 
+ * When the agent starts, it creates a new directory in /tmp/ with restrictive permissions (0700), and creates it's socket there with similarly restrictive permissions (0600). Agent keys are usable by root user, however, they are only usable while the agent is running. If you supply the -c option when you import your keys into the agent, then the agent will not allow them to be used without confirmation. Type command 
+ 
+ ```ssh-add -c```
+ 
+ When someone attempts to use agent to authenticate to a server, the ssh-agent will run the ssh-askpass program. However this will prevent root on machines to which you've forwarded the agent from accessing your agent.
+ 
+ ***Agent Forwarding***
+ -------------
+  * The default in newer versions of OpenSSH is to disable agent forwarding by default. the agent is running on one machine, and each time you SSH with agent forwarding, the server creates a 'tunnel' back through the SSH connection to the agent so it's available for any further SSH connections. To forward your agent via the command line, just include a -A flag:
+
+   ```ssh -A user@remotehost```. The screenshot below shows this 
+   
+   It should be pointed out that Forward SSH must be set to yes on the client machine and AllowTCPForwarding should be set to yes on the server machine in the sshd_config. 
  
  ***Results*** 
  As a result we have tried two ways to create key pairs.
@@ -57,4 +70,5 @@ To configure authentification based on ssh keys the following steps should be ta
  
  1. https://unix.stackexchange.com/questions/29386/how-do-you-copy-the-public-key-to-a-ssh-server
  2. https://stackoverflow.com/questions/2841094/what-is-the-difference-between-dsa-and-rsa
+ 3. https://github.com/irynadiudiuk/Linux_Fundamentals/edit/master/SSH_Keys_Set_Up/SSH_Keys_Set_Up.md
  
