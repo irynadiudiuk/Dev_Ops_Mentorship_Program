@@ -35,8 +35,19 @@ To configure authentification based on ssh keys the following steps should be ta
 
 ***SSH Agent***
 -------------
- * After the keys are set up, we can user SSH Agent program to store our keys and set them on the servers we want to connect for a specific period of time. To do that we need to Start the ssh-agent in the background with command ```eval "$(ssh-agent -s)"```. After that we need to make sure that in the config file ```/etc/ssh/ssh_config``` ForwardAgent value is set to _yes_ as on the screenshot below: ![ScreenShot]() 
- * 
+ * After the keys are set up, we can user SSH Agent program to store our keys and set them on the servers we want to connect for a specific period of time. To do that we need to Start the ssh-agent in the background with command ```eval "$(ssh-agent -s)"```. Then we need to add the key to the SSH Agent using the following command 
+ 
+ ```sh-add -K ~/.ssh/id_rsa```
+ 
+ To see if the key is visible to SSH Agent we can use the command 
+ 
+ 
+ ```ssh-add -L```
+ 
+ After that we need to make sure that in the config file ```/etc/ssh/ssh_config``` ForwardAgent value is set to _yes_ as on the screenshot below: ![ScreenShot]() 
+ * On Mac OS X, ssh-agent will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command: 
+ 
+ ```/usr/bin/ssh-add -K ~/.ssh/id_rsa```
  * 
  
  ***Results*** 
