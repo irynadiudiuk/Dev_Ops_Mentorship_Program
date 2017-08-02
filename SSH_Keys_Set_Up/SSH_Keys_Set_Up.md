@@ -2,21 +2,13 @@
 ### **Network Configuration in Linux** ###
 -------
 *Topics covered:
-
-
-1. SSHD;
-2. Private and Public Keys explained;
-2. SSH keys manual setup;
-3. SSH keys setup using a command;
+1. SSH keys manual setup;
+2. SSH keys setup using a command;
+3. SSH Agent;
 4. Results;
 5. Resources.
 
 
-***SSHD***
--------------
-
-***Private and Public Keys explained;***
--------------
 
 ***SSH keys manual setup***
 -------------
@@ -41,6 +33,11 @@ To configure authentification based on ssh keys the following steps should be ta
 2. on the VW where a new key pair is generated we need to type the following command ```ssh-copy-id``` followed by the username and hostname of the user on the machine to which we are going to be connecting. In case the passphrase is chosen while the key pair was generated, the passphrase needs to be inserted while connecting to the VM. below is the screenshot of the result:
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Keys_Set_Up/Screen%20Shot%202017-07-28%20at%2010.08.07.png) 
 
+***SSH Agent***
+-------------
+ * After the keys are set up, we can user SSH Agent program to store our keys and set them on the servers we want to connect for a specific period of time. To do that we need to Start the ssh-agent in the background with command ```eval "$(ssh-agent -s)"```. After that we need to make sure that in the config file ```/etc/ssh/ssh_config``` ForwardAgent value is set to _yes_ as on the screenshot below: ![ScreenShot]() 
+ * 
+ * 
  
  ***Results*** 
  As a result we have tried two ways to create key pairs.
