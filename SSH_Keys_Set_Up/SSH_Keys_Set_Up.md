@@ -44,7 +44,7 @@ To configure authentification based on ssh keys the following steps should be ta
  
  ```ssh-add -L```
  
- After that we need to make sure that in the config file ```/etc/ssh/ssh_config``` ForwardAgent value is set to _yes_ as on the screenshot below: ![ScreenShot]() 
+ After that we need to make sure that in the config file ```/etc/ssh/ssh_config``` ForwardAgent value on the client machine is set to _yes_ as on the screenshot below: ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Keys_Set_Up/forward-yes.png) 
  * On Mac OS X, ssh-agent will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command: 
  
  ```/usr/bin/ssh-add -K ~/.ssh/id_rsa```
