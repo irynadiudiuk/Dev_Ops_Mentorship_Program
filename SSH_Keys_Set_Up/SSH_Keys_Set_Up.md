@@ -1,5 +1,5 @@
 
-### **Network Configuration in Linux** ###
+### **KEY BASED AUTHENTIFICATION** ###
 -------
 *Topics covered:
 1. SSH keys manual setup;
@@ -35,11 +35,11 @@ To configure authentification based on ssh keys the following steps should be ta
 
 ***SSH Agent***
 -------------
- * After the keys are set up, we can user SSH Agent program to store our keys and set them on the servers we want to connect for a specific period of time. To do that we need to Start the ssh-agent in the background with command ```eval "$(ssh-agent -s)"```. Then we need to add the key to the SSH Agent using the following command 
+ * After the keys are set up, we can use SSH Agent program to store our keys and set them on the servers we want to connect to. To do that we need to Start the ssh-agent in the background with command ```eval "$(ssh-agent -s)"```. Then we need to add the key to the SSH Agent using the following command: 
  
  ```sh-add -K ~/.ssh/id_rsa```
  
- To see if the key is visible to SSH Agent we can use the command 
+ To see if the key is visible to SSH Agent we can use the command: 
  
  
  ```ssh-add -L```
@@ -48,20 +48,20 @@ To configure authentification based on ssh keys the following steps should be ta
  * On Mac OS X, ssh-agent will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command: 
  
  ```/usr/bin/ssh-add -K ~/.ssh/id_rsa```
+ 
+ 
  * When the agent starts, it creates a new directory in /tmp/ with restrictive permissions (0700), and creates it's socket there with similarly restrictive permissions (0600). Agent keys are usable by root user, however, they are only usable while the agent is running. 
- * When the agent starts, it creates a new directory in /tmp/ with restrictive permissions (0700), and creates it's socket there with similarly restrictive permissions (0600). Agent keys are usable by root user, however, they are only usable while the agent is running. If you supply the -c option when you import your keys into the agent, then the agent will not allow them to be used without confirmation. Type command 
- 
- ```ssh-add -c```
- 
- When someone attempts to use agent to authenticate to a server, the ssh-agent will run the ssh-askpass program. However this will prevent root on machines to which you've forwarded the agent from accessing your agent.
+ * If you supply the -c option when you import your keys into the agent, then the agent will not allow them to be used without confirmation. Type command: ```ssh-add -c```. When someone attempts to use agent to authenticate to a server, the ssh-agent will run the ssh-askpass program. However, this will prevent root on machines to which we've forwarded the agent from accessing your agent.
  
  ***Agent Forwarding***
  -------------
-  * The default in newer versions of OpenSSH is to disable agent forwarding by default. the agent is running on one machine, and each time you SSH with agent forwarding, the server creates a 'tunnel' back through the SSH connection to the agent so it's available for any further SSH connections. To forward your agent via the command line, just include a -A flag:
+  * The default in newer versions of OpenSSH is to disable agent forwarding by default. The agent is running on one machine, and each time you SSH with agent forwarding, the server creates a 'tunnel' back through the SSH connection to the agent so it's available for any further SSH connections. To forward your agent via the command line, just include a -A flag:
 
    ```ssh -A user@remotehost```. The screenshot below shows this 
    
-   It should be pointed out that Forward SSH must be set to yes on the client machine and AllowTCPForwarding should be set to yes on the server machine in the sshd_config. 
+   It should be pointed out that ForwardAgent in SSH_config must be set to _yes_ on the client machine and AllowTCPForwarding should be set to _yes_ on the server machine in the sshd_config. Below is the screenshot of the sshd_config on the distination machine. ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Keys_Set_Up/Screen%20Shot%202017-08-03%20at%2023.53.52.png).
+   And here is the screenshot from the ssh_config from the client machine: 
+   ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Keys_Set_Up/Screen%20Shot%202017-08-03%20at%2023.57.39.png)
  
  ***Results*** 
  As a result we have tried two ways to create key pairs.
