@@ -57,11 +57,21 @@ To configure authentification based on ssh keys the following steps should be ta
  -------------
   * The default in newer versions of OpenSSH is to disable agent forwarding by default. The agent is running on one machine, and each time you SSH with agent forwarding, the server creates a 'tunnel' back through the SSH connection to the agent so it's available for any further SSH connections. To forward your agent via the command line, just include a -A flag:
 
-   ```ssh -A user@remotehost```. The screenshot below shows this 
+   ```ssh -A user@remotehost```. 
    
-   It should be pointed out that ForwardAgent in SSH_config must be set to _yes_ on the client machine and AllowTCPForwarding should be set to _yes_ on the server machine in the sshd_config. Below is the screenshot of the sshd_config on the distination machine. ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Keys_Set_Up/Screen%20Shot%202017-08-03%20at%2023.53.52.png).
+  * It should be pointed out that ForwardAgent in SSH_config must be set to _yes_ on the client machine and AllowTCPForwarding should be set to _yes_ on the server machine in the sshd_config. Below is the screenshot of the sshd_config on the distination machine. ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Keys_Set_Up/Screen%20Shot%202017-08-03%20at%2023.53.52.png).
    And here is the screenshot from the ssh_config from the client machine: 
    ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Keys_Set_Up/Screen%20Shot%202017-08-03%20at%2023.57.39.png)
+   Here is what needs to be done to set up agent forwarding in a nutshell:
+1. generate key pair with passphrase;
+2. set up ssh_config (forward agent) and sshd_config (allowforwarding)
+3. start ssh-agent process
+4. use ssh-add command to add key to agent and enter correct passphrase
+5. copy id_rsa to the remote machine
+6. enter password to that machine
+Below is the output of the ssh -v command showing that the forwarding in working:
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Keys_Set_Up/Screen%20Shot%202017-08-04%20at%2002.21.23.png)
+
  
  ***Results*** 
  As a result we have tried two ways to create key pairs.
