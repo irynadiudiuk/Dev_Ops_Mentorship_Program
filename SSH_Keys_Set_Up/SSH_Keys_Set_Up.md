@@ -1,14 +1,12 @@
 
-### **KEY BASED AUTHENTIFICATION** ###
+### **KEY-BASED AUTHENTICATION** ###
 -------
 *Topics covered:
 1. SSH keys manual setup;
 2. SSH keys setup using a command;
-3. SSH Agent;
+3. SSH Agent and SSH Forwarding;
 4. Results;
 5. Resources.
-
-
 
 ***SSH keys manual setup***
 -------------
@@ -74,7 +72,7 @@ Below is the output of the ssh -v command showing that the forwarding in working
 
  
  ***Results*** 
- As a result we have tried two ways to create key pairs, used key-based authentication to connect to remote machines, created key pairs with passphrase, added keys to ssh agent and used ssh forwaring to connect to remote machine without entering the passphrase.
+ As a result we have tried two ways of creating ssh key pairs, used key-based authentication to connect to remote machines, created key pairs with passphrase, added keys to ssh agent and used ssh forwaring to connect to remote machines without entering the passphrase.
  
  
  ***Resources***
@@ -82,5 +80,5 @@ Below is the output of the ssh -v command showing that the forwarding in working
  1. https://unix.stackexchange.com/questions/29386/how-do-you-copy-the-public-key-to-a-ssh-server
  2. https://stackoverflow.com/questions/2841094/what-is-the-difference-between-dsa-and-rsa
  3. https://github.com/irynadiudiuk/Linux_Fundamentals/edit/master/SSH_Keys_Set_Up/SSH_Keys_Set_Up.md
- 4. v
+ 4. https://www.youtube.com/watch?v=CVbOHZty7j0
  
