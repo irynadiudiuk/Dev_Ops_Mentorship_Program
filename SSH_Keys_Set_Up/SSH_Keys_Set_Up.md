@@ -72,7 +72,9 @@ Below is the output of the ssh -v command showing that the forwarding in working
 
  
  ***Results*** 
- As a result we have tried two ways of creating ssh key pairs, used key-based authentication to connect to remote machines, created key pairs with passphrase, added keys to ssh agent and used ssh forwaring to connect to remote machines without entering the passphrase.
+ 
+ 
+ As a result we have used two ways of creating ssh key pairs, used key-based authentication to connect to remote machines, created key pairs with passphrase, added keys to ssh agent and used ssh forwaring to connect to remote machines without entering the passphrase.
  
  
  ***Resources***
