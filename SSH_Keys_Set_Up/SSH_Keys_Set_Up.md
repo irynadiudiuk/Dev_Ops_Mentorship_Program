@@ -1,7 +1,7 @@
 
 ### **KEY-BASED AUTHENTICATION** ###
 -------
-*Topics covered:
+*Topics covered:*
 1. SSH keys manual setup;
 2. SSH keys setup using a command;
 3. SSH Agent and SSH Forwarding;
