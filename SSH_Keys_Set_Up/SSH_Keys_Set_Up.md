@@ -12,7 +12,7 @@
 -------------
  * To create a keypair we need to type the command: ```ssh-keygen``` on the machine from which we are going to connect to another VM. Below is the output of this command, all the options are left blank.
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Network_Configuration_in_Linux/Screen%20Shot%202017-07-25%20at%2023.39.41.png)  
- * After this is done, a folder ~/.ssh is created with three default files: id_rsa (private key), id_rsa.pub (public key), known hosts (contains DSA host keys of SSH servers accessed by the user). 
+ * After this is done, a folder ~/.ssh is created with three default files: id_rsa (private key), id_rsa.pub (public key), known hosts (contains host keys of SSH servers accessed by the user). 
  * DSA is faster in signing, but slower in verifying. A DSA key of the same strength as RSA (1024 bits) generates a smaller signature. DSA can only be used for signing/verification, whereas RSA can be used for encryption/decrypt as well.
  * Now we need to copy the public key from the machine where the keys were generated (which is CentOS 7 in this case) to another machine to which we need to connect without password authentification (which is Ubuntu, just as an example). To do this we type the command: ```scp ~/.ssh/id_rsa.pub user@remote.example.com:/tmp/id_rsa.pub``` - in our case we used ip address of the Ubuntu VM.
   ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Network_Configuration_in_Linux/Screen%20Shot%202017-07-25%20at%2023.55.12.png) 
