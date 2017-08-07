@@ -65,6 +65,8 @@ To configure authentification based on ssh keys the following steps should be ta
 4. use ssh-add command to add key to agent and enter correct passphrase
 5. copy public key to the remote machine
 6. enter password to that machine
+
+
 Below is the output of the ssh -v command showing that the forwarding in working:
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Keys_Set_Up/Screen%20Shot%202017-08-04%20at%2002.21.23.png)
 
