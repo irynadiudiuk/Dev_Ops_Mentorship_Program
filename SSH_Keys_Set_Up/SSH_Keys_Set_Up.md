@@ -33,7 +33,7 @@ To configure authentification based on ssh keys the following steps should be ta
 
 ***SSH Agent***
 -------------
- * After the keys are set up, we can use SSH Agent program to store our keys and set them on the servers we want to connect to. To do that we need to Start the ssh-agent in the background with command ```eval "$(ssh-agent -s)"```. Then we need to add the key to the SSH Agent using the following command: 
+ * After the keys are set up, we can use SSH Agent program to securely store our keys. To do that we need to Start the ssh-agent in the background with command ```eval "$(ssh-agent -s)"```. Then we need to add the key to the SSH Agent using the following command: 
  
  ```ssh-add -K ~/.ssh/id_rsa```
  
