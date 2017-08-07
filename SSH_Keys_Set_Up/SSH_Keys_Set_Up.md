@@ -17,7 +17,7 @@
  * Now we need to copy the public key from the machine where the keys were generated (which is CentOS 7 in this case) to another machine to which we need to connect without password authentification (which is Ubuntu, just as an example). To do this we type the command: ```scp ~/.ssh/id_rsa.pub user@remote.example.com:/tmp/id_rsa.pub``` - in our case we used ip address of the Ubuntu VM.
   ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Network_Configuration_in_Linux/Screen%20Shot%202017-07-25%20at%2023.55.12.png) 
  * You can see that when copying the keys a password of this Ubuntu needs to be typed.
- * Now we can create a directory .ssh to our destination machine (Ubuntu). Permission 700 should be enough for this folder.
+ * Now we can create a directory .ssh to our destination machine (Ubuntu). Permission 700 should be set for this folder, otherwise the key authorization will not work properly.
  * Then we move the public key to the appropriate folder using the following command ```cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys```. On the screenshot below you may see that the public key (id_rsa.pub) from CentOS VM is now stored in ~/.ssh/authorized_keys file on the Ubuntu VM.
   ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Network_Configuration_in_Linux/Screen%20Shot%202017-07-26%20at%2000.09.40.png) 
  * The last step is to check access without a password. The screenshot below shows that once the public key generated on CentOS VM is in the ~/.ssh/authorized_keys, we can connect via ssh to Ubuntu machine without typing password.
@@ -42,11 +42,9 @@ To configure authentification based on ssh keys the following steps should be ta
  
  ```ssh-add -L```
  
- After that we need to make sure that in the config file ```/etc/ssh/ssh_config``` ForwardAgent value on the client machine is set to _yes_ as on the screenshot below: ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Keys_Set_Up/forward-yes.png) 
  * On Mac OS X, ssh-agent will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command: 
  
  ```/usr/bin/ssh-add -K ~/.ssh/id_rsa```
- 
  
  * When the agent starts, it creates a new directory in /tmp/ with restrictive permissions (0700), and creates it's socket there with similarly restrictive permissions (0600). Agent keys are usable by root user, however, they are only usable while the agent is running. 
  * If you supply the -c option when you import your keys into the agent, then the agent will not allow them to be used without confirmation. Type command: ```ssh-add -c```. When someone attempts to use agent to authenticate to a server, the ssh-agent will run the ssh-askpass program. However, this will prevent root on machines to which we've forwarded the agent from accessing your agent.
@@ -65,7 +63,7 @@ To configure authentification based on ssh keys the following steps should be ta
 2. set up ssh_config (forward agent) and sshd_config (allowforwarding)
 3. start ssh-agent process
 4. use ssh-add command to add key to agent and enter correct passphrase
-5. copy id_rsa to the remote machine
+5. copy id_rs to the remote machine
 6. enter password to that machine
 Below is the output of the ssh -v command showing that the forwarding in working:
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Keys_Set_Up/Screen%20Shot%202017-08-04%20at%2002.21.23.png)
