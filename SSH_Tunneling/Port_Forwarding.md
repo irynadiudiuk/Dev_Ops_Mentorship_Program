@@ -9,8 +9,8 @@
 5. To check the configuration of the tunnel we are connecting to AWS instance address and forwarded port. 
 If tunneling is working correctly we will be forwarded to Ngix installed on port 80 of the VM.
 
-Below is the picture displayng the type of connection we are creating:
-
+Below is the picture displays the type of connection we are creating:
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/pic.png)
 
 ***Steps taken to set up ssh tunneling:***
 
@@ -29,9 +29,9 @@ This is useful if ssh is going to ask for passwords or passphrases, but the user
 This is useful if ssh is going to ask for passwords or passphrases, but the user wants it in the background).
 8. After the command is executed the ports both on VM and on AWS instance were checked. The screenshots below show that the appropriate ports are open:
 netstat on VM
-![Screenshot]() 
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/vm.png) 
 netstat on AWS
-![Screenshot]() 
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/ec2.png) 
 9. Now that the ports are proved to be open we can check if the tunnel is working. The screenshot below shows that the user is connected to Nginx server via AWS instance.
-![Screenshot]() 
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/nginx.png) 
 
