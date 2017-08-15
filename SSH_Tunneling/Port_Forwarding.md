@@ -10,7 +10,7 @@
 6. If port forwarding is set correctly we will see the default start page of Nginx.
 
 Below is the picture displays the type of connection we are creating:
-![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/pic.png)
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/eeee.png)
 
 ***Steps taken to set up ssh tunneling:***
 
