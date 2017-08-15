@@ -18,8 +18,8 @@ Below is the picture displays the type of connection we are creating:
 2. SSH Keys added via ssh-add command and key-based authentication checked.
 3. Agent forwarding configured on machines Mac, VM and AWS (in ssh_config option *ForwardAgent* changed to _'yes'_).
 4. In sshd_config three options changed to _'yes'_: *AllowTCPForwarding*,*AllowAgentForwarding*,*GatewayPorts*.
-5. A new rule is added security group of the AWS Instance to allow incoming connections on port 1234.
-6. Remote port forwarding set up from VBox VM port 80  to AWS instance port 1234 (running ssh -R on VM).
+5. A new rule is added to a security group of the AWS Instance to allow incoming connections on port 1234.
+6. Remote port forwarding is set up from VBox VM port 80 to AWS instance port 1234 (running ssh -R on VM).
 To do this we used the command ```ssh -N -f -R 1234:localhost:80 ec2-user@52.36.164.219```.
 (-N option means that the user will not execute a remote command.
 -f option requests ssh to go to background just before command execution. This is useful if ssh is going to ask for passwords or passphrases, but the user wants it in the background).
@@ -28,7 +28,7 @@ netstat on VM
 ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/vm.png) 
 netstat on AWS
 ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/ec2.png) 
-9.  Now that the ports are proved to be open we can check if the tunnel is working. Open web browser and enter http://aws_ip_or_dns_name:1234 in address line.
+9.  Now that the ports are proved to be open we can check if the tunnel is working. To do that we opened web browser and enter http://aws_ip_or_dns_name:1234 in address line.
 The screenshot below shows that the user is connected to Nginx server via AWS instance.
 ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/nginx.png) 
 
