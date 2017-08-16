@@ -31,7 +31,7 @@ To be able to set up network adapters we need to have the following things set u
  * In this scenario we are going to assign a static ip address for our network interface. For this we need to set up both Virtual box (turn on the host-only adapter from preferences option) and our VMs. Below is the screenshot of the configuration file of CentOS 7:  
  
 |Configuration File| 
-![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2000.36.44.png) 
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Network_Configuration_in_Linux/Screen%20Shot%202017-07-25%20at%2000.36.44.png) 
 
 
 * Last step is to restart network service. To do it on CentOS, type the command:  ```sudo service network restart``` or ```sudo /etc/init.d/network restart```.
@@ -40,7 +40,7 @@ To be able to set up network adapters we need to have the following things set u
 
 ***Network Adapter Configuration for CentOS 6.5***
  * type ```ip link``` command to view availabe interfaces. **lo** - is the default name for virtual network interface that a computer uses to communicate with itself. **eth0** - in this case, the name of the interface for the NAT adapter. The secondary adapter is called **eth1**. Below is the output of the comand ```ip a```
-![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2010.29.06.png) 
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Network_Configuration_in_Linux/Screen%20Shot%202017-07-25%20at%2010.29.06.png) 
 * in CentOS 6.5 network configuration files are stored on the following path: 
  ```/etc/sysconfig/network-scripts/```;
 * In CentOS 6.5 NAT interface adapter is called **eth0** and its configuration file **ifcfg-eth0**. For the secondary interface **eth1** a new file needs to be created, called **ifcfg-eth1**
@@ -53,7 +53,7 @@ To be able to set up network adapters we need to have the following things set u
 -------------
  * type ```ip link``` command to view availabe interfaces. **lo** - is the default name for virtual network interface that a computer uses to communicate with itself. **enp0s3** - in this case the name of the interface for the NAT adapter. In case the second adapter is in "cable connected" state its default name is **enp0s8** and it is dispalyed as the third network interface.
  Here is the example of the output when two adapters are turned on:
- ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2009.46.48.png)
+ ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Network_Configuration_in_Linux/Screen%20Shot%202017-07-25%20at%2009.46.48.png)
  
  * notice that in Ubuntu (16.04) network configuration files are stored on the following path: 
  ```/etc/network/``` in the file **interfaces**;
@@ -61,7 +61,7 @@ To be able to set up network adapters we need to have the following things set u
  * In this scenario we are going to assign a static ip address for our network interface. Here is the screenshot from the file with secondary interface configured:
  
  |Configuration File| 
- ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Screen%20Shot%202017-07-25%20at%2009.54.44.png) 
+ ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Network_Configuration_in_Linux/Screen%20Shot%202017-07-25%20at%2009.54.44.png) 
 
 * Last step is to restart network service. To do it on Ubuntu, type the command:  ```sudo service networking restart``` or ```sudo /etc/init.d/networking restart```.
 
