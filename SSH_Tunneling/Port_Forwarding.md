@@ -24,6 +24,7 @@ To do this we used the command ```ssh -N -f -R 1234:localhost:80 ec2-user@52.36.
 (-N option means that the user will not execute a remote command.
 -f option requests ssh to go to background just before command execution. This is useful if ssh is going to ask for passwords or passphrases, but the user wants it in the background).
 8. After the command is executed the ports both on VM and on AWS instance were checked. The screenshots below show that the appropriate ports were opened:
+
 netstat on VM
 ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/vm.png) 
 netstat on AWS
