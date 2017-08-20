@@ -29,6 +29,6 @@ netstat on VM
 netstat on AWS
 ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/ec2.png) 
 9.  Now that the ports are proved to be open we can check if the tunnel is working. To do that we opened web browser and enter http://aws_ip_or_dns_name:1234 in address line.
-The screenshot below shows that the user is connected to Nginx server via AWS instance.
-![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/nginx.png) 
+The screenshot below shows that the user is connected to Nginx server via AWS instance. On the right side of this screenshot the output of the command ```sudo nestat -tpn``` shows that the tunnel with AWS instance in established. On the right side we can see that port _1234_ on AWS instance is opened.
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SSH_Tunneling/Screen%20Shot%202017-08-20%20at%2012.45.57.png) 
 
