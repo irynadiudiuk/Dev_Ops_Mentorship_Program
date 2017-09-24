@@ -10,6 +10,8 @@
 
 
 ***Basic Concepts***
+
+
 LVM works with three basic concepts:
 1. Physical Volumes - correspond to disks; 
 2. Volume Groups - named collections of physical volumes, they are block devices that provide the space to store logical volumes;
