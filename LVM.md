@@ -48,9 +48,6 @@ lvremove /dev/vgpool/lvstuff
 vgremove vgpool
 pvremove /dev/sdb1 /dev/sdc1 - unmount and remove all
 
-
-***LVM Commands***
-
  
  ***PV as a part of partition with and without partition table*** 
  -New hard drive added and fdisk utility used  (t - to change partition type / 8e - to change to LVM partition type)
