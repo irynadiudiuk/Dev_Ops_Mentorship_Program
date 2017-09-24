@@ -17,16 +17,18 @@ LVM works with three basic concepts:
 
 
 ***LVM Commands***
+___________________
 In case of installation of LVM to a new system
 1. choose option “Use LVM with new Ubuntu installation” 
 2. “File Sytem Type: physical volume (LVM)” on Centos 
 */boot partition cannot reside on an LVM volume because the GRUB boot loader cannot read it.
 
-lvmdiskscan -l -  to see info in LVM devices in the system
-
+lvmdiskscan -l -  to see info in LVM devices in the system ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/lvm.PNG)
 pvcreate /dev/sd* -  to create physical volume
 vgcreate vg1 /dev/sd* - to create volume group with the name vg1
-pvscan/vgscan/lvscan to see information on physical volumes, volume groups or logical volumes correspondently (can be used in form on pvs,vgs/lvs) ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/vgs.PNG)
+pvscan/vgscan/lvscan to see information on physical volumes, volume groups or logical volumes correspondently (can be used in form on pvs,vgs/lvs)
+
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/vgs.PNG)
 
 lvcreate -L 3G -n lvstuff vgpool to create a logical volume
 mkfs -t ext3 /dev/vgpool/lvstuff - to format new lv with a file system
