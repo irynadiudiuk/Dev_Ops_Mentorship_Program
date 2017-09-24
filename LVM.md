@@ -81,8 +81,8 @@ The second way is to create an LVM partition is withhout a partition table. To d
  
  ***Resources***
  
- 1. https://unix.stackexchange.com/questions/29386/how-do-you-copy-the-public-key-to-a-ssh-server
- 2. https://stackoverflow.com/questions/2841094/what-is-the-difference-between-dsa-and-rsa
+ 1. https://www.howtogeek.com/howto/40702/how-to-manage-and-use-lvm-logical-volume-management-in-ubuntu/
+ 2. https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Cluster_Logical_Volume_Manager/LVM_CLI.html
  3. https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Logical_Volume_Manager_Administration/VG_remove_PV.html
  4. https://www.slideshare.net/prakashrockz/red-hat-lvm-cheatsheet
  
