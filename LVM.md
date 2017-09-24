@@ -10,10 +10,10 @@
 
 
 ***Basic Concepts***
-LVM works with three basic concepts:
+```LVM works with three basic concepts:
 1. Physical Volumes - correspond to disks; 
 2. Volume Groups - named collections of physical volumes, they are block devices that provide the space to store logical volumes;
-3. Logical Volumes - correspond to partitions, hold the filesystems, can span across multiple disks, and do not have to be physically contiguous.
+3. Logical Volumes - correspond to partitions, hold the filesystems, can span across multiple disks, and do not have to be physically contiguous.```
 
 
 ***LVM Commands***
