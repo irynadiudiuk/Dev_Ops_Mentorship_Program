@@ -23,10 +23,10 @@ LVM works with three basic concepts:
 
 
 lvmdiskscan -l -  to see info in LVM devices in the system
- ![ScreenShot]( ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Network_Configuration_in_Linux/Screen%20Shot%202017-07-25%20at%2010.29.06.png)
+ ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Network_Configuration_in_Linux/Screen%20Shot%202017-07-25%20at%2010.29.06.png)
 pvcreate /dev/sd* -  to create physical volume
 vgcreate vg1 /dev/sd* - to create volume group with the name vg1
-pvscan/vgscan/lvscan to see information on physical volumes, volume groups or logical volumes correspondently (can be used in form on pvs,vgs/lvs) https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/vgs.PNG
+pvscan/vgscan/lvscan to see information on physical volumes, volume groups or logical volumes correspondently (can be used in form on pvs,vgs/lvs) ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/vgs.PNG)
 
 lvcreate -L 3G -n lvstuff vgpool to create a logical volume
 mkfs -t ext3 /dev/vgpool/lvstuff - to format new lv with a file system
