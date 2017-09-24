@@ -15,7 +15,7 @@ LVM works with three basic concepts:
 3. Logical Volumes - correspond to partitions, hold the filesystems, can span across multiple disks, and do not have to be physically contiguous.
 
 ***LVM Commands***
--------------
+
 ```In case of installation of LVM to a new system
 1. choose option “Use LVM with new Ubuntu installation” 
 2. “File Sytem Type: physical volume (LVM)” on Centos 
@@ -50,10 +50,10 @@ pvremove /dev/sdb1 /dev/sdc1 - unmount and remove all
 
 
 ***LVM Commands***
--New hard drive added and fdisk utility used  (t - to change partition type / 8e - to change to LVM partition type)
+
  
  ***PV as a part of partition with and without partition table*** 
- 
+ -New hard drive added and fdisk utility used  (t - to change partition type / 8e - to change to LVM partition type)
  
  As a result we have used two ways of creating ssh key pairs, used key-based authentication to connect to remote machines, created key pairs with passphrase, added keys to ssh agent and used ssh forwaring to connect to remote machines without entering the passphrase.
  
