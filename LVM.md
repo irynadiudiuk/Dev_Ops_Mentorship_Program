@@ -17,10 +17,10 @@ LVM works with three basic concepts:
 
 
 ***LVM Commands***
-```In case of installation of LVM to a new system
+In case of installation of LVM to a new system
 1. choose option “Use LVM with new Ubuntu installation” 
 2. “File Sytem Type: physical volume (LVM)” on Centos 
-*/boot partition cannot reside on an LVM volume because the GRUB boot loader cannot read it. ```
+*/boot partition cannot reside on an LVM volume because the GRUB boot loader cannot read it.
 
 lvmdiskscan -l -  to see info in LVM devices in the system
 
