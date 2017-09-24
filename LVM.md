@@ -14,12 +14,14 @@ LVM works with three basic concepts:
 2. Volume Groups - named collections of physical volumes, they are block devices that provide the space to store logical volumes;
 3. Logical Volumes - correspond to partitions, hold the filesystems, can span across multiple disks, and do not have to be physically contiguous.
 
-***LVM Commands***
-
 ```In case of installation of LVM to a new system
 1. choose option “Use LVM with new Ubuntu installation” 
 2. “File Sytem Type: physical volume (LVM)” on Centos 
 */boot partition cannot reside on an LVM volume because the GRUB boot loader cannot read it. ```
+
+***LVM Commands***
+
+
 
 
 lvmdiskscan -l -  to see info in LVM devices in the system
