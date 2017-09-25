@@ -81,15 +81,15 @@ The second way is to create an LVM partition is without a partition table. To do
 ***sdd1*** - with a parittion table and and ***sdc*** without
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/withwithout.PNG)
  
- Below is the table comparingtwo types of set up of LVM partition:
+ Below is the table comparing two types of set up of LVM partition:
  
  
 | Comparison Criteria | LVM with Partition Table | LVM with no Partition Table |
 | :-----------:       |     :-------------:      |     :---------------------: |
-| Creation of a New Volume | Additional commands need to be entered and disk management utils have to be used (e. g. fdisk, parted) to create partition table for PV.    | PV can be created straight away  |
-| Extending  of Existing Volume  | Partitions can be extended since there might be some place left.   | PV cannot be extended as usually the whole disk without a partitions is used for PV     |
-| Shrinking of Existing Volume   | Partitions can be reduced and the space left used for other pursopes.       |  It is not recommended to shrink PV as the space that will be left cannot be appropriately used for another PV   |
-| Data Restore on External Server   | With partition table, the date about partitions contains info on what was on the disk and help in restore process       | There is no info on what was on the disk, and it often happens that disk gets overwritten with new info     |
+| Creation of a New Volume | Additional commands need to be entered and disk management utils have to be used (e. g. fdisk, parted) to create partition table for PV.    | PV can be created straight away.  |
+| Extending  of Existing Volume  | Partitions for PV can be extended since there might be some space left on disk.   | LVM PV cannot be extended as usually the whole disk is used for PV.     |
+| Shrinking of Existing Volume   | Partitions for PV can be reduced and the space left used for other purposes.     |  It is not recommended to shrink LVM PV as the space that will be left cannot be appropriately used for another PV.   |
+| Data Restore on External Server   | With partition table, the data about partitions contains info on what was on the disk.   | There is no info on what was on the disk when the disk in unplugged, and it often happens that disk gets overwritten with new info.   |
 
  
  ***Resources***
