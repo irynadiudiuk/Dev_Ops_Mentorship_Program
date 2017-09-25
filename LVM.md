@@ -77,7 +77,7 @@ ________________________________________________________________________________
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/8E.PNG)
  
  
-The second way is to create an LVM partition is withhout a partition table. To do this we add a new hard drive and type ```pvcreate /dev/sd*```. Below is the screenshot showing the output of the command ```lsblk```, where two LVM partitions are displayed.
+The second way is to create an LVM partition is without a partition table. To do this we add a new hard drive and type ```pvcreate /dev/sd*```. Below is the screenshot showing the output of the command ```lsblk```, where two LVM partitions are displayed.
 ***sdd1*** - with a parittion table and and ***sdc*** without
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/withwithout.PNG)
  
