@@ -82,6 +82,8 @@ The second way is to create an LVM partition is without a partition table. To do
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/withwithout.PNG)
  
  Below is the table comparingtwo types of set up of LVM partition:
+ 
+ 
 | Comparison Criteria | LVM with Partition Table | LVM with no Partition Table |
 | :---         |     :---:      |          ---: |
 | git status   | git status     | git status    |
