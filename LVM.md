@@ -81,6 +81,12 @@ The second way is to create an LVM partition is without a partition table. To do
 ***sdd1*** - with a parittion table and and ***sdc*** without
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/withwithout.PNG)
  
+ Below is the table comparingtwo types of set up of LVM partition:
+| Comparison Criteria | LVM with Partition Table | LVM with no Partition Table |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
+ 
  ***Resources***
  
  1. https://www.howtogeek.com/howto/40702/how-to-manage-and-use-lvm-logical-volume-management-in-ubuntu/
