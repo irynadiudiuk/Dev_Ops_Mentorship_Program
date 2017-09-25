@@ -87,9 +87,9 @@ The second way is to create an LVM partition is without a partition table. To do
 | Comparison Criteria | LVM with Partition Table | LVM with no Partition Table |
 | :-----------:       |     :-------------:      |     :---------------------: |
 | Creation of a New Volume | Additional commands need to be entered and disk management utils have to be used (e. g. fdisk, parted) to create partition table for PV.    | PV can be created straight away.  |
-| Extending  of Existing Volume  | Partitions for PV can be extended since there might be some space left on disk.   | LVM PV cannot be extended as usually the whole disk is used for PV.     |
-| Shrinking of Existing Volume   | Partitions for PV can be reduced and the space left used for other purposes.     |  It is not recommended to shrink LVM PV as the space that will be left cannot be appropriately used for another PV.   |
-| Data Restore on External Server   | With partition table, the data about partitions contains info on what was on the disk.   | There is no info on what was on the disk when the disk in unplugged, and it often happens that disk gets overwritten with new info.   |
+| Extension  of Existing Volume      | Partitions for PV can be extended since there might be some space left on disk.   | LVM PV cannot be extended as usually the whole disk is used for PV.     |
+| Shrinkage of Existing Volume       | Partitions for PV can be reduced and the space left used for other purposes.     |  It is not recommended to shrink LVM PV as the space that will be left cannot be appropriately used for another PV.   |
+| Data Restore on External Server    | With partition table, the data about partitions contains info on what was on the disk.   | There is no info on what was on the disk when the disk in unplugged, and it often happens that disk gets overwritten with new info.   |
 
  
  ***Resources***
