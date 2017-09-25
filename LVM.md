@@ -85,9 +85,10 @@ The second way is to create an LVM partition is without a partition table. To do
  
  
 | Comparison Criteria | LVM with Partition Table | LVM with no Partition Table |
-| :---         |     :---:      |          ---: |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
+| :----------         |     :-------------:      |          -----------------: |
+| Creation of new Volume | git status     | git status    |
+| Resize of Existing Volume    | git diff       | git diff      |
+| Data Restore on External Server   | git diff       | git diff      |
  
  ***Resources***
  
