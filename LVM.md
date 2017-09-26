@@ -98,7 +98,7 @@ Below are the screenshots that display comparison of the commands:
 2.  ```lsblk``` vs ```parted -l```
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/parted.PNG)
  
- As you can see from these screenshots above, the mapped devices show info about volume groups and LVM logical volumes. In case of ```parted -l``` even some additional information, namely start, end and file system type.
+ As you can see from the screenshots above, the mapped devices show info about volume groups and LVM logical volumes. In case of ```parted -l``` even some additional information, namely start, end and file system type.
  
  ***Resources***
  
