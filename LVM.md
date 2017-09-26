@@ -89,14 +89,16 @@ The second way is to create an LVM partition is without a partition table. To do
 | Creation of a New Volume | Additional commands need to be entered and disk management utils have to be used (e. g. fdisk, parted) to create partition table for PV.    | PV can be created straight away.  |
 | Extension  of Existing Volume      | Partitions for PV can be extended since there might be some space left on disk.   | LVM PV cannot be extended as usually the whole disk is used for PV.     |
 | Shrinkage of Existing Volume       | Partitions for PV can be reduced and the space left used for other purposes.     |  It is not recommended to shrink LVM PV as the space that will be left cannot be appropriately used for another PV.   |
-| Data Restore on External Server    | With partition table, the data about partitions contains info on what was on the disk.   | In case you check for available devices with commands ```fdisk -l``` or ```parted -l``` There is no info displayed on what was on the disk when it is unplugged and plugged into another device. It often happens that disk gets overwritten with new info as the device seems to be empty. However, if you check the output of ```lsblk``` command it will show whether the device is a part of volume group and logical volume or not.  |
+| Data Restore on External Server    | With partition table, the data about partitions contains info on what was on the disk.   | In case you check for available devices with commands ```fdisk -l``` or ```parted -l```, the devices with LVM logical volumes seem to be empty. It often happens that disk gets overwritten with new info because of it. However, if you check the output of ```lsblk``` command it will show whether the device is a part of volume group and logical volume or not.  |
 
-*There is one more thing that needs to be mentioned regarding the output of the ```fdisk -l``` and ```parted -l```. Besides the real plugged devices these commands show mapped devices. LVM logical volumes are activated using the Device Mapper. Each logical volume is translated into a mapped device. Although there seems to be no correlation between the mapped and the real device device this should urge the user to at least check ```lsblk``` command and see if there are LVM logical volumes on available devices.
+*There is one more thing that needs to be mentioned regarding the output of the ```fdisk -l``` and ```parted -l```. Besides the real plugged devices these commands show mapped devices. LVM logical volumes are activated using the Device Mapper. Each logical volume is translated into a mapped device. Although there seems to be no correlation between the mapped and the real device this should urge the user to at least check ```lsblk``` command and see if there are LVM logical volumes on available devices.
 Below are the screenshots that display comparison of the commands:
 1. ```lsblk``` vs ```fdisk -l```
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/fdisk.PNG)
 2.  ```lsblk``` vs ```parted -l```
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/parted.PNG)
+ 
+ As you can see from these screenshots above, the mapped devices show info about volume groups and LVM logical volumes. In case of ```parted -l``` even some additional information, namely start, end and file system type.
  
  ***Resources***
  
@@ -104,6 +106,7 @@ Below are the screenshots that display comparison of the commands:
  2. https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Cluster_Logical_Volume_Manager/LVM_CLI.html
  3. https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Logical_Volume_Manager_Administration/VG_remove_PV.html
  4. https://www.slideshare.net/prakashrockz/red-hat-lvm-cheatsheet
+ 5. https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Logical_Volume_Manager_Administration/device_mapper.html
  
 
 
