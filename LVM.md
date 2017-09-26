@@ -32,9 +32,9 @@ ________________________________________________________________________________
 ```lvmdiskscan -l``` -  to see info in LVM devices in the system ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/lvm.PNG)
 
 
-```pvcreate /dev/sd*``` -  to create physical volume
+```pvcreate /dev/sdany``` -  to create physical volume
 
-```vgcreate vg1 /dev/sd*``` - to create volume group with the name vg1
+```vgcreate vg1 /dev/sdany``` - to create volume group with the name vg1
 
 ```pvscan/vgscan/lvscan``` - to see information on physical volumes, volume groups or logical volumes correspondently (can be used in form of ```pvs,vgs,lvs```)
 
@@ -43,13 +43,13 @@ ________________________________________________________________________________
 
 ```lvcreate -L+3G -n lv1 vg1to``` - to  create a logical volume name lv1 using vg1
 
-```mkfs -t ext* /dev/vg1/lv1m``` - to format new lv with a file system
+```mkfs -t ext4 /dev/vg1/lv1m``` - to format new lv with a file system
 
 ```mkdir /mnt/lv```  - to create a mount point
 
 ```mount /dev/vg1/lv1 /mnt/lv1m``` - to mount
 
-```vgextend vg1 /dev/sd*``` - to extend vg with newly added hard drive
+```vgextend vg1 /dev/sdany``` - to extend vg with newly added hard drive
 
 ```lvextend -L8G /dev/vg1/lv1``` - to extend to up to a 8G
 
@@ -65,7 +65,7 @@ ________________________________________________________________________________
 
 ```vgremove vg1``` - to remove volume group
 
-```pvremove /dev/sd* /dev/sd*```  - unmount and remove more than one physical volume
+```pvremove /dev/sdany /dev/sdany```  - unmount and remove more than one physical volume
 
 
 ________________________________________________________________________________________________________________________________
@@ -91,7 +91,7 @@ The second way is to create an LVM partition is without a partition table. To do
 | Shrinkage of Existing Volume       | Partitions for PV can be reduced and the space left used for other purposes.     |  It is not recommended to shrink LVM PV as the space that will be left cannot be appropriately used for another PV.   |
 | Data Restore on External Server    | With partition table, the data about partitions contains info on what was on the disk.   | In case you check for available devices with commands ```fdisk -l``` or ```parted -l```, the devices with LVM logical volumes seem to be empty. It often happens that disk gets overwritten with new info because of it. However, if you check the output of ```lsblk``` command it will show whether the device is a part of volume group and logical volume or not.  |
 
-*There is one more thing that needs to be mentioned regarding the output of the ```fdisk -l``` and ```parted -l```. Besides the real plugged devices these commands show mapped devices. LVM logical volumes are activated using the Device Mapper. Each logical volume is translated into a mapped device. Although there seems to be no correlation between the mapped and the real device this should urge the user to at least check ```lsblk``` command and see if there are LVM logical volumes on available devices.
+* There is one more thing that needs to be mentioned regarding the output of the ```fdisk -l``` and ```parted -l```. Besides the real plugged devices these commands show mapped devices. LVM logical volumes are activated using the Device Mapper. Each logical volume is translated into a mapped device. Although there seems to be no correlation between the mapped and the real device this should urge the user to at least check ```lsblk``` command and see if there are LVM logical volumes on available devices.
 Below are the screenshots that display comparison of the commands:
 1. ```lsblk``` vs ```fdisk -l```
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/fdisk.PNG)
