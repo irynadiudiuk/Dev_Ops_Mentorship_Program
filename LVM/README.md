@@ -43,11 +43,11 @@ ________________________________________________________________________________
 
 ```lvcreate -L+3G -n lv1 vg1to``` - to  create a logical volume name lv1 using vg1
 
-```mkfs -t ext4 /dev/vg1/lv1m``` - to format new lv with a file system
+```mkfs -t ext4 /dev/vg1/lv1``` - to format new lv with a file system
 
-```mkdir /mnt/lv```  - to create a mount point
+```mkdir /mnt/lvmp```  - to create a mount point
 
-```mount /dev/vg1/lv1 /mnt/lv1m``` - to mount
+```mount /dev/vg1/lv1 /mnt/lvmp``` - to mount
 
 ```vgextend vg1 /dev/sdany``` - to extend vg with newly added hard drive
 
@@ -65,7 +65,7 @@ ________________________________________________________________________________
 
 ```vgremove vg1``` - to remove volume group
 
-```pvremove /dev/sdany /dev/sdany```  - unmount and remove more than one physical volume
+```pvremove /dev/sdany```  - unmount and remove more than one physical volume
 
 
 ________________________________________________________________________________________________________________________________
@@ -77,7 +77,9 @@ ________________________________________________________________________________
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/8E.PNG)
  
  
-The second way is to create an LVM partition is without a partition table. To do this we add a new hard drive and type ```pvcreate /dev/sd*```. Below is the screenshot showing the output of the command ```lsblk```, where two LVM partitions are displayed.
+The second way is to create an LVM partition is without a partition table. To do this we add a new hard drive and type ```pvcreate /dev/sd*```. 
+
+Below is the screenshot showing the output of the command ```lsblk```, where two LVM partitions are displayed.
 ***sdd1*** - with a parittion table and and ***sdc*** without
  ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/withwithout.PNG)
  
