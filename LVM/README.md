@@ -32,40 +32,40 @@ ________________________________________________________________________________
 ```lvmdiskscan -l``` -  to see info in LVM devices in the system ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/lvm.PNG)
 
 
-```pvcreate /dev/sdany``` -  to create physical volume
+```pvcreate /dev/sd(any)``` -  to create physical volume. *(any)* here implies any device of your choosing (sdb, sdc, sdd1).
 
-```vgcreate vg1 /dev/sdany``` - to create volume group with the name vg1
+```vgcreate vgroup1 /dev/sd(any)``` - to create volume group with the name vgroup1
 
 ```pvscan/vgscan/lvscan``` - to see information on physical volumes, volume groups or logical volumes correspondently (can be used in form of ```pvs,vgs,lvs```)
 
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/LVM/vgs.PNG)
 
 
-```lvcreate -L+3G -n lv1 vg1to``` - to  create a logical volume name lv1 using vg1
+```lvcreate -L+3G -n lv1 vgroup1``` - to  create a logical volume name lv1 using vgroup1
 
-```mkfs -t ext4 /dev/vg1/lv1``` - to format new lv with a file system
+```mkfs -t ext4 /dev/vgroup1/lv1``` - to format new lv with a file system
 
-```mkdir /mnt/lvmp```  - to create a mount point
+```mkdir /mnt/lvmp```  - to create a mount point for a new volume group
 
-```mount /dev/vg1/lv1 /mnt/lvmp``` - to mount
+```mount /dev/vgroup1/lv1 /mnt/lvmp``` - to mount
 
-```vgextend vg1 /dev/sdany``` - to extend vg with newly added hard drive
+```vgextend vgroup1 /dev/sdany``` - to extend vg with newly added hard drive
 
-```lvextend -L8G /dev/vg1/lv1``` - to extend to up to a 8G
+```lvextend -L8G /dev/vgroup1/lv1``` - to extend to up to a 8G
 
-```lvextend -L+3G /dev/vg1/lv1``` - to add 3G
+```lvextend -L+3G /dev/vgroup1/lv1``` - to add 3G
 
-```resize2fs /dev/vg1/lv1``` - to resize lv (before that e2fck -f /dev/vg*/lv/* needs to be run)
+```resize2fs /dev/vgroup1/lv1``` - to resize lv (before that e2fck -f /dev/vgroup1/lv1/ needs to be run)
 
-```lvextend -L-0.65Gib /dev/vg1/lv1``` - to reduce 0.65Gib
+```lvextend -L-0.65Gib /dev/vgroup1/lv1``` - to reduce 0.65Gib
 
-```lvcreate -L512M -s -n lv1backup /dev/vg1/lv1``` - to create a snapshot
+```lvcreate -L512M -s -n lv1backup /dev/vgroup1/lv1``` - to create a snapshot
 
-```lvremove /dev/vg1/lv1``` - to remove logical volume
+```lvremove /dev/vgroup1/lv1``` - to remove logical volume
 
-```vgremove vg1``` - to remove volume group
+```vgremove vgroup1``` - to remove volume group
 
-```pvremove /dev/sdany```  - unmount and remove more than one physical volume
+```pvremove /dev/sd(any)```  - unmount and remove more than one physical volume
 
 
 ________________________________________________________________________________________________________________________________
