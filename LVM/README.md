@@ -70,7 +70,7 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________________________________________
  
- ***PV as partition with and without partition table*** 
+ ***Physical Volume as a Part of Logical Partition or as a Whole Disk*** 
  
  There are two ways to create LVM partitions. The first one is using disk management command, for example, ```fdisk``` and create a primary partition choosing ```8e``` option to specify Linux LVM partition type.
  Below is the screenshot of the list of possible partition types in Ubuntu 16.04:
