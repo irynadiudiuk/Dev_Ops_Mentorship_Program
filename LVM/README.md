@@ -47,7 +47,7 @@ ________________________________________________________________________________
 
 ```mkdir /mnt/lvmp```  - to create a mount point for a new volume group
 
-```mount /dev/vgroup1/lv1 /mnt/lvmp``` - to mount
+```mount /dev/vgroup1/lv1 /mnt/lvmp``` - to mount logical volume called lv1 into the folder /mnt/lvmp
 
 ```vgextend vgroup1 /dev/sdany``` - to extend vg with newly added hard drive
 
