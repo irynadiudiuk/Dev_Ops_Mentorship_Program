@@ -8,7 +8,18 @@
 3. Resources.
 
 -------
-***Basic Coincepts***
+***Basic Concepts***
+
+Systemd is a system and service manager for Linux operating systems. It is designed to be backwards compatible with SysV init scripts, and provides a number of features such as parallel startup of system services at boot time, on-demand activation of daemons, support for system state snapshots, or dependency-based service control logic.
+
+
+Systemd introduces the concept of systemd units. Systemd has only limited support for runlevels. It provides a number of target units that can be directly mapped to these runlevels and for compatibility reasons, it is also distributed with the earlier runlevel command.  
+
+The systemctl utility does not support custom commands. It does not communicate with services that have not been started by systemd.
+
+Here is the list of comparison of the main commands used in Sys V and Sytemd init systems:
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/multiuser.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/multiuser.png)
 
 
 
