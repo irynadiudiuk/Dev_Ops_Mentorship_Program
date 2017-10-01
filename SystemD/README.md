@@ -21,7 +21,7 @@ Here is the list of comparison of the main commands used in Sys V and Sytemd ini
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/2.png)
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/3.png)
 
-
+____________________________________________
 
 
 *Task:*
