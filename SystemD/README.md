@@ -46,14 +46,17 @@ The WantedBy option in the [INSTALL] section indicates that the unit with start 
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/multiuser.png)
 
 
-The graphical target can be compared to the runlevel 5 on the sys V init system. It is the default target for the Ubuntu Desktop Installation.
-The multi-user target is in most cases the default target for server installations. On this screenshot above multi-user target is the default on for the Centos7 VM.
+The *graphical.target* can be compared to the runlevel 5 on the sys V init system. It is the default target for the Ubuntu Desktop Installation.
+
+The *multi-user.target* is in most cases the default target for server installations. On the screenshot above multi-user target is the default on for the Centos7 VM.
  _______________________________________
  
-3. To enable a service to start on boot the following command is used: ```systemctl enable checker.service```. Checker is the name of the service we use in this example. You need to insert the appropriate name of the service you would like to enable instead of "checker" in this command. Below in the screenshot of this command:
+3. To enable a service to start on boot the following command is used: ```systemctl enable checker.service```. 
+
+Checker is the name of the service we use in this example. You need to insert the appropriate name of the service you would like to enable instead of "checker" in this command. Below in the screenshot of this command:
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/symlink.png)
 
-On the screenshot you can see that the symlink is created from the ***/etc/systemd/system/default.target.wants/*** to the /etc/systemd/system/checker.service.
+On the screenshot you can see that the symlink is created from the ***/etc/systemd/system/default.target.wants/*** to the ***/etc/systemd/system/checker.service***.
 The message about creation on soft link is an indicator that the service in enabled. To check the status of the service use the command ```systemctl status checker.service``` (do not forget to replace the name of the service with the correct one for you).
 To view the list of all enabled services the the command: ```systemctl list-unit-files --type service --state enabled```. Below is the screenshot displaying the output:
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/checker.png)
