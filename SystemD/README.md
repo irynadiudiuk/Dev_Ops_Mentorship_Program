@@ -18,8 +18,8 @@ Systemd introduces the concept of systemd units. Systemd has only limited suppor
 The systemctl utility does not support custom commands. It does not communicate with services that have not been started by systemd.
 
 Here is the list of comparison of the main commands used in Sys V and Sytemd init systems:
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/multiuser.png)
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/multiuser.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/2.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/3.png)
 
 
 
