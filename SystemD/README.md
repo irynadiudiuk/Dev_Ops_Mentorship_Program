@@ -60,9 +60,12 @@ The WantedBy option in the [INSTALL] section indicates that the unit with start 
 The *graphical.target* can be compared to the runlevel 5 on the sys V init system. It is the default target for the Ubuntu Desktop Installation.
 
 The *multi-user.target* is in most cases the default target for server installations. On the screenshot above multi-user target is the default on for the Centos7 VM.
+
+It is important to use the ```systemctl daemon-reload``` command after creating new unit files or modifying existing unit files. Otherwise, the systemctl start or systemctl enable commands could fail due to a mismatch between states of systemd and actual service unit files on disk. After that the service can be started with ```systemctl start checker.service```.
  _______________________________________
  
 3. To enable a service to start on boot the following command is used: ```systemctl enable checker.service```. 
+
 
 Checker is the name of the service we use in this example. You need to insert the appropriate name of the service you would like to enable instead of "checker" in this command. Below in the screenshot of this command:
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/symlink.png)
