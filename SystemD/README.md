@@ -26,7 +26,9 @@ ____________________________________________
 
 *Task:*
 
-The goal of this task is to create a custom service and will start at boot time and will work with ```systemctl``` command
+The goal of this task is to create a custom service and will start at boot time and will work with ```systemctl``` command.
+
+
 The task consists of the following steps:
 
 1. Prepare Script for the Service;
