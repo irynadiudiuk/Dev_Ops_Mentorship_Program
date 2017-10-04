@@ -32,18 +32,18 @@ The script should be executable that is why one of the following commands needs 
 
 
 Below you can see the screenshot of this script.
-![ScreenShot]()
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SysV/script.png)
 
 ____________________
 2. Second step is to create a link in the folder with the name of the runlevel on which the script will be working. The task was to make this script work on the second runlevel. That is why the link was create from the directory ```/etc/rc.d/rc2.d```  to service file that was previously set in the directory ```/etc/init.d/myservice``.`
 
 Below you can see that the symbolic link was been created and then renamed to indicate the order in which the script would be executed in the example we chose the script to start with #9.
-![ScreenShot]()
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SysV/link%20created%20and%20renamed.png)
 
 _______________________________________
  
 3. After the script was tested the command ```init 2``` was used to switch the the second runlevel. Then to check that the system is on an appropriate runlevel we used ```who -r``` command, another way to check it would be to use ``` runlevel``` command. Below you can see the screenshot showing that the script is executed as a service of System V on the second runlevel.
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/symlink.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SysV/service%20is%20working.png)
 
  
  ***Resources***
