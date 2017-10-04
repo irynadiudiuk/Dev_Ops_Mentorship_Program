@@ -15,7 +15,7 @@
 - The first thing init does, is reading its initialization file, ```/etc/inittab```. This instructs init to read an initial configuration script for the environment, which sets the path, starts swapping, checks the file systems, and so 
 - None of the scripts that start and stop the services are located in ```/etc/rc<x>.d/```. All of the files there are symbolic links that point to the actual scripts located in ```/etc/init.d/```. It can be created or deleted without affecting the actual scripts that kill or start the services. 
 - The symbolic links to the various scripts are numbered in a particular order so that they start in that order. You can change the order in which the services start or are killed by changing the name of the symbolic link that refers to the script that controls the service. 
-- If you use the same number multiple times you indicate that a particular service with this number will be started or stopped  at the same time as other serivce with this number.
+- If you use the same number multiple times you indicate that a particular service with this number will be started or stopped  at the same time as other service with this number.
 ____________________________________________
  
 
