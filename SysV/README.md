@@ -58,5 +58,6 @@ _______________________________________
 2. https://unix.stackexchange.com/questions/115495/how-to-find-out-in-which-order-etc-init-d-scripts-are-load-on-debian
 3. https://www.cs.auckland.ac.nz/references/unix/digital/AQTLLATE/DOCU_002.HTM
 4. http://www.tldp.org/LDP/intro-linux/html/sect_04_02.html
+5. https://shabirimam.wordpress.com/2009/03/10/adding-script-to-run-at-startup-or-shutdown/
 
 
