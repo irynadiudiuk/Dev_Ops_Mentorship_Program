@@ -6,13 +6,13 @@ Description:
 
 # Start myservice
 start() {
-echo "file is created" | tee /home/iryna/newrc2file
+echo "file is created" | tee /var/tmp/newrc2file
 }
 
 # Stop  myservice
 stop() {
 
-rm -f /home/iryna/newrc2file
+rm -f /var/tmp/newrc2file
 }
 
 ### main logic ###
