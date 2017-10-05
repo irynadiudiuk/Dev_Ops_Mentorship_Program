@@ -12,31 +12,31 @@
 ***Basic Concepts***
 
 - When init process starts, it becomes the parent (with PID=1) or grandparent of all of the processes that start up automatically on Linux system. 
-- The first thing init does, is reading its initialization file, ```/etc/inittab```. This instructs init to read an initial configuration script for the environment, which sets the path, starts swapping, checks the file systems, and so 
-- None of the scripts that start and stop the services are located in ```/etc/rc<x>.d/```. All of the files there are symbolic links that point to the actual scripts located in ```/etc/init.d/```. It can be created or deleted without affecting the actual scripts that kill or start the services. 
+- The first thing init does, is reading its initialization file, ```/etc/inittab```. This instructs init to read an initial configuration script for the environment, which sets the path, starts swapping, checks the file systems.
+- None of the scripts that start and stop the services are located in ```/etc/rc<x>.d/```. All of the files there are symbolic links that point to the actual scripts located in ```/etc/init.d/```. These links can be created or deleted without affecting the actual scripts that kill or start the services. 
 - The symbolic links to the various scripts are numbered in a particular order so that they start in that order. You can change the order in which the services start or are killed by changing the name of the symbolic link that refers to the script that controls the service. 
-- If you use the same number multiple times you indicate that a particular service with this number will be started or stopped  at the same time as other service with this number.
+- If the same number is used multiple times, a particular service with this number will be started or stopped  at the same time as other services with this number.
 ____________________________________________
  
 
 *Task:*
 
-The goal of this task was to create a custom service that will on it's start create a file and delete the same file when this service is stopped. It will work with runlevel 2. This task is done on Centos 6.5 since SysV is the init system for this version, while Centos 7 uses systemd as a primary init system. When the same step were done on Centos 7, there was a problem switching runlevels. (the command ```systemctl isolate runlevel2.target``` did not work). Also starting a service with ```service myservice start``` command did not work. 
+The goal of this task was to create a custom service that will on it's start create a file and delete the same file when this service is stopped. It will work with runlevel 2. This task is done on Centos 6.5 since SysV is the init system for this version, while Centos 7 uses systemd as a primary init system. When the same steps were done on Centos 7, there was a problem switching runlevels. (the command ```systemctl isolate runlevel2.target``` did not work). Also starting a service with ```service myservice start``` command did not work. 
 
 
 The task consists of the following steps:
 
-1. Prepare script for the service;
-2. Create a link to a service file in a folder of the chosen run level and then change name of this link to display the order of the process;
+1. Prepare script for the service (service file);
+2. Create a link to a service file in a folder of the chosen run level and then change name of this link to display the order with whoich the process will start;
 3. Switch to the chosen runlevel and test the service;
 
 _____________________
 
 1. The simple script was created and put into the following directory ```/etc/init.d/```
-The script should be executable that is why one of the following commands needs to be used ```sudo chmod 755 myservice``` or ```chmod +x myservice```, you need to insert the name of your script instead of "myservice" as it is used here as an example.
+The script should be executable that is why one of the following commands was used ```sudo chmod 755 myservice``` or ```chmod +x myservice```, you need to insert the name of your script instead of "myservice" as it is used here as an example.
 
 
-Below you can see the screenshot of this script.
+Below you can see the screenshot of the service file.
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SysV/script.png)
 
 ____________________
