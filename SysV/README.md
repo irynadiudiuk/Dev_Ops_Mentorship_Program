@@ -14,7 +14,8 @@
 - When init process starts, it becomes the parent (with PID=1) or grandparent of all of the processes that start up automatically on Linux system. 
 - The first thing init does, is reading its initialization file, ```/etc/inittab```. This instructs init to read an initial configuration script for the environment, which sets the path, starts swapping, checks the file systems.
 - None of the scripts that start and stop the services are located in ```/etc/rc<x>.d/```. All of the files there are symbolic links that point to the actual scripts located in ```/etc/init.d/```. These links can be created or deleted without affecting the actual scripts that kill or start the services. 
-- The symbolic links to the various scripts are numbered in a particular order so that they start in that order. You can change the order in which the services start or are killed by changing the name of the symbolic link that refers to the script that controls the service. 
+- The symbolic links to the various scripts are numbered in a particular order so that they start or be killed in that order. You can change the order in which services start or are killed by changing the name of the symbolic link that refers to the script that controls the service.
+- The letter "S" at the beginning of the link indicates that the process should start and the letter "K" that the process should be killed. **"S09myservice"** - this name of the link implies that the process will be started and will be the 9th in the queue to be started on that runlevel.
 - If the same number is used multiple times, a particular service with this number will be started or stopped  at the same time as other services with this number.
 ____________________________________________
  
