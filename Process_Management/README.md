@@ -33,18 +33,20 @@ There are other types of processes running on a system:
 
 **Child process** - a process that is created by some other process during run-time. 
 Usually child processes are created to execute some binary from within an existing process. 
-Child processes are created using fork() system call.
 Normally process are made to run through shell/terminal. 
 In that case the shell becomes the parent and the executed process becomes the child process. 
 On Unix/Linux each process has a parent except the init process.
+
 
 **Daemon Process** - this is a special type of process that runs in background. 
 They are system related processes that are not associated with terminal. 
 These processes run will root permissions and usually provide services to processes. 
 A typical example would be a mail daemon that waits for the arrival of e-mails and notifies the user when an e-mail is received.
 
+
 **Orphan process** - a process creates a child process (as described above) and when the parent process terminates, the child processes becomes an orphan and is then taken over by the init process. 
 Though the init process takes the ownership of the orphan process, it is still called an orphan as its original parent no longer exists.
+
 
 **Zombie process** - when a child process gets terminated or completes its execution, an entry in the process table remains until the parent process fetches the status information of the terminated child. 
 Until then the terminated process enters zombie state and is known as zombie process.  
@@ -59,7 +61,11 @@ _________________________________
 During execution, a process changes from one state to another depending on its environment/circumstances. In Linux, a process has the following possible states:
 
 **Running** – here it’s either running (it is the current process in the system) or it’s ready to run (it’s waiting to be assigned to one of the CPUs).
+
+
 **Waiting** – in this state, a process is waiting for an event to occur or for a system resource. Additionally, the kernel also differentiates between two types of waiting processes; interruptible waiting processes – can be interrupted by signals and uninterruptible waiting processes – are waiting directly on hardware conditions and cannot be interrupted by any event/signal.
+
+
 **Stopped** – in this state, a process has been stopped, usually by receiving a signal. For instance, a process that is being debugged.
 
 ________________________________
@@ -73,11 +79,23 @@ ________________________________
 And most signals are for internal use by the system, or for programmers when they write code. The following are signals which are useful to a system user:
 
 SIGHUP 1 – sent to a process when its controlling terminal is closed.
-SIGINT 2 – sent to a process by its controlling terminal when a user interrupts the process by pressing  [Ctrl+C].
-SIGQUIT 3 – sent to a process if the user sends a quit signal [Ctrl+D].
+
+
+SIGINT 2 – sent to a process by its controlling terminal when a user interrupts the process by pressing  ```[Ctrl+C]```.
+
+
+SIGQUIT 3 – sent to a process if the user sends a quit signal ```[Ctrl+D]```.
+
+
 SIGKILL 9 – this signal immediately terminates (kills) a process and the process will not perform any clean-up operations.
+
+
 SIGTERM 15 – this a program termination signal (kill will send this by default).
+
+
 SIGTSTP 20 – sent to a process by its controlling terminal to request it to stop (terminal stop); initiated by the user pressing ```[Ctrl+Z]```.
+
+
 ________________________________
 
 ***Priority of Processes***
