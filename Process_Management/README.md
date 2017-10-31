@@ -2,7 +2,7 @@ Process Management in Linux
 
 Plan:
 
-1. Creation of a Process; 
+1. Process Creation; 
 2. Types of Processes;
 3. States of Processes; 
 3. Signals in Process Management;
@@ -11,7 +11,7 @@ Plan:
 _________________________________
 
 
-***Creation a Process***
+***Process Creation***
 
 A new process is created when an existing process makes an exact copy of itself. This child process has the same environment as its parent, only the process ID number is different. This procedure is called forking.
 
@@ -99,3 +99,4 @@ _________________________________
 http://www.linuxtopia.org/online_books/introduction_to_linux/linux_Process_creation.html
 http://www.thegeekstuff.com/2012/02/unix-process-overview/
 https://www.tecmint.com/linux-process-management/
+https://www.computerhope.com/unix/renice.htm
