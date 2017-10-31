@@ -4,9 +4,9 @@ Plan:
 
 1. Creation of a Process; 
 2. Types of Processes;
-3. States of a Process; 
+3. States of Processes; 
 3. Signals in Process Management;
-4. Priority of the Processes;
+4. Priority of Processes;
 5. Resources.
 _________________________________
 
@@ -54,7 +54,7 @@ Typically, the handler of this signal in the parent executes a ‘wait’ call t
 
 _________________________________
 
-***States of a Process in Linux***
+***States of Processes***
 
 During execution, a process changes from one state to another depending on its environment/circumstances. In Linux, a process has the following possible states:
 
@@ -63,6 +63,7 @@ During execution, a process changes from one state to another depending on its e
 **Stopped** – in this state, a process has been stopped, usually by receiving a signal. For instance, a process that is being debugged.
 
 ________________________________
+
  ***Signals in process management***
  
  The fundamental way of controlling processes in Linux is by sending signals to them. There are multiple signals that can  be sent to a process, to view all the signals run: ```kill -l```
@@ -78,17 +79,20 @@ SIGKILL 9 – this signal immediately terminates (kills) a process and the proce
 SIGTERM 15 – this a program termination signal (kill will send this by default).
 SIGTSTP 20 – sent to a process by its controlling terminal to request it to stop (terminal stop); initiated by the user pressing ```[Ctrl+Z]```.
 ________________________________
-***Priority of the Processes***
 
-On the Linux system, all active processes have a priority and certain nice value. Processes with higher priority will normally get more CPU time than lower priority processes.
+***Priority of Processes***
 
+On the Linux system, all active processes have a priority and certain nice value. 
+Processes with higher priority will normally get more CPU time than lower priority processes.
 However, a system user with root privileges can influence this with the nice and renice commands.
 
-From the output of the top command, the NI shows the process nice value:
-Use the nice command to set a nice value for a process. Keep in mind that normal users can attribute a nice value from zero to 20 to processes they own.
-Only the root user can use negative nice values.
+In the output of the top command, the NI value shows the process prioruty (nice).
 
-To renice the priority of a process, use the renice command
+This ```nice``` command is used to set a nice value for a process. Users can attribute a nice value from 0 to 20 to processes they own.
+Only the root user can use negative nice values (-20 for highest priority and 20 for lowest).
+
+To renice the priority of a process, ```renice``` command is used.
+
 _________________________________
 *Resources*
 
