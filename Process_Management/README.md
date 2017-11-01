@@ -25,7 +25,9 @@ _________________________________
 
 Depending on the way the process is started there are two types of processes in Linux:
 
-**Foreground processes** (interactive processes) – these are initialized and controlled through a terminal session. In other words, there has to be a user connected to the system to start such processes; they haven’t started automatically as part of the system functions/services.
+**Foreground processes** (interactive processes) – these are initialized and controlled through a terminal session. In other words, there has to be a user connected to the system to start such processes; they have not started automatically as part of the system functions/services.
+
+
 **Background processes** (automatic processes) – are processes not connected to a terminal; they do not expect any user input.
 
 
