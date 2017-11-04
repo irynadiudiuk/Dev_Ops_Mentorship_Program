@@ -65,6 +65,8 @@ ____________________________________________
 ____________________________________________
 
 ***DNS Service and its Configuration***
+
+!Screenshot[https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Major_Services/Screen%20Shot%202017-11-04%20at%2016.26.42.png]
 ____________________________________________
  
  ***Resources***
