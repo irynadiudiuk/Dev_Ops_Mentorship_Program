@@ -62,6 +62,20 @@ ____________________________________________
 ____________________________________________
 
 ***Printing Service***
+
+The printer is managed by software that implements a print queue: all print jobs are put into a queue and whenever the printer is done with one job, the next one is sent to it automatically. This relieves the users from organizing the print queue and fighting over control of the printer. 
+A popular way to print in the Linux operating system is to send the file to be printed directly to the printing device. One way to do this is to use the cat command. As the root user, one could do something like
+
+ # cat thesis.txt > /dev/lp
+ 
+Users use ``lpr`` to print a file. For example ```$ lpr [ options ] [ filename ... ]``` The lpr command takes care of all the initial work needed to print the file, and then it hands control over to another program, ``lpd``, the line printing daemon. The line printing daemon then tells the printer how to print the file.
+
+The root user and users in the same group as the print daemon are able to write directly to the printer. For this purpose commands such as ```lpr```, ``lprm``, and ``lpq`` have to be used to access the printer.
+
+
+To view the contents of the print queue, the ```lpq``` command is used. 
+```lprm -``` is used to remove jobs from printing queue. If only one job needs to be cancelled, then command ```lprm #``` can be used, where # is the number of the job according to the ```lprq``` command.
+
 ____________________________________________
 
 ***DNS Service and its Configuration***
