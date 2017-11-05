@@ -59,6 +59,14 @@ ____________________________________________
 
 ***Mail Service***
 
+An electronic letter is stored in a file using a special format, and special mail programs are used to send and read the letters.
+
+Each user has an incoming mailbox (a file in the special format), where all new mail is stored. When someone sends mail, the mail program locates the receiver's mailbox and appends the letter to the mailbox file. If the receiver's mailbox is in another machine, the letter is sent to the other machine, which delivers it to the mailbox as it best sees fit.
+
+The mail system consists of many programs. The delivery of mail to local or remote mailboxes is done by one program (the mail transfer agent (MTA) , e.g., sendmail or postfix ), while the programs users use are many and varied (mail user agent (MUA) , e.g., pine , or evolution .	The mailboxes are usually stored in ```/var/spool/mail``` until the user's MUA retrieves them.
+
+Postfix is a free and open-source mail transfer agent (MTA) that routes and delivers electronic mail.
+
 ____________________________________________
 
 ***Printing Service***
