@@ -66,7 +66,26 @@ ____________________________________________
 
 ***DNS Service and its Configuration***
 
-!Screenshot[https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Major_Services/Screen%20Shot%202017-11-04%20at%2016.26.42.png]
+
+The Domain Name System (DNS) is a hierarchical decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It associates various information with domain names assigned to each of the participating entities. 
+
+
+The most common types of records stored in the DNS database are for ***Start of Authority (SOA)***, ***IP addresses (A and AAAA)***, **SMTP mail exchangers (MX)**, **name servers (NS)**, **pointers for reverse DNS lookups (PTR)**, and ***domain name aliases (CNAME)***. Although not intended to be a general purpose database, DNS can store records for other types of data for either automatic lookups, such as DNSSEC records, or for human queries such as ***responsible person (RP)*** records. 
+As a general purpose database, the DNS has also been used in combating unsolicited email (spam) by storing a real-time blackhole list. The DNS database is traditionally stored in a structured zone file.
+
+
+The client side of the DNS is called a DNS resolver. A resolver is responsible for initiating and sequencing the queries that ultimately lead to a full resolution (translation) of the resource sought, e.g., translation of a domain name into an IP address. An individual DNS query may be either non-recursive, recursive, or iterative, or a combination of these.
+
+
+A DNS hosting service is a service that runs Domain Name System servers. Most, but not all, domain name registrars include DNS hosting service with registration. Free DNS hosting services also exist. Many third-party DNS hosting services provide Dynamic DNS.
+
+Domain Name System is responsible for translating Internet domain and hostnames to IP addreses and vice versa. Domain Name System clients are sending requests (hostname or IP addresses) to the DSN server and wait for the response. These requests are called DNS lookup requests. There are two types of requests:
+```Forward lookup``` resolves hostnames to IP addresses;
+```Reverse lookup``` resolves IPaddresses to host and domain names
+
+The screenshot below shows this process: 
+
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Major_Services/Screen%20Shot%202017-11-04%20at%2016.26.42.png)
 ____________________________________________
  
  ***Resources***
@@ -74,3 +93,5 @@ ____________________________________________
 1. http://www.tldp.org/LDP/sag/html/major-services.html
 2. https://en.wikipedia.org/wiki/Cron
 3. https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/ch-nfs.html
+4. https://en.wikipedia.org/wiki/Domain_Name_System
+
