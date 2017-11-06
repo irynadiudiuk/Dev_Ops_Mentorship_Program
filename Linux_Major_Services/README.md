@@ -66,6 +66,7 @@ Each user has an incoming mailbox (a file in the special format), where all new 
 The mail system consists of many programs. The delivery of mail to local or remote mailboxes is done by one program (the mail transfer agent (MTA) , e.g., sendmail or postfix ), while the programs users use are many and varied (mail user agent (MUA) , e.g., pine , or evolution .	The mailboxes are usually stored in ```/var/spool/mail``` until the user's MUA retrieves them.
 
 Postfix is a free and open-source mail transfer agent (MTA) that routes and delivers electronic mail.
+Postfix has several hundred configuration parameters that are controlled via the main.cf file. Fortunately, all parameters have sensible default values. By default, Postfix configuration files are in /etc/postfix. The two most important files are main.cf and master.cf; these files must be owned by root. Giving someone else write permission to main.cf or master.cf (or to their parent directories) means giving root privileges to that person.
 
 ____________________________________________
 
@@ -116,4 +117,5 @@ ____________________________________________
 2. https://en.wikipedia.org/wiki/Cron
 3. https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/ch-nfs.html
 4. https://en.wikipedia.org/wiki/Domain_Name_System
+5. http://www.postfix.org/BASIC_CONFIGURATION_README.html
 
