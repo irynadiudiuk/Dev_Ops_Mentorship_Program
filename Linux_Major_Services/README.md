@@ -1,6 +1,6 @@
 
 
-### **Major Services in Linux** ###
+#  Major Services in Linux
 
 *Plan:*
 
@@ -10,10 +10,11 @@
 4. Mail Service;
 5. Printing Service;
 6. DNS Service and its Configuration;
-7. Resources.
+7. Telnet;
+8. Resources.
 
 -------
-***Init Process***
+# ***Init Process***
 
 
 Init is the first process started during the "bootstrapping" and is also on the most important services in Linux system. It is the last thing the kernel does when it boots. When init starts, it performs various startup functions, namely: checking and mounting filesystems, starting daemons, etc.
@@ -32,7 +33,7 @@ When the system is shut down, it is init that is in charge of killing all other 
       
 ____________________________________________
 
-***Scheduling Service***
+# ***Scheduling Service***
 
  Each user can have a ```crontab``` file, with the commands to execute and the times they should be executed. The cron daemon takes care of starting the commands when specified.
 
@@ -50,7 +51,7 @@ Note that if neither of these files exist then, depending on site-dependent conf
 The ```at``` service is similar to cron, but it is once only: the command is executed at the given time, but it is not repeated. Here is an example of the command ```echo "at command output" | at 1145 jan 31```
 ____________________________________________
 
-***Network File Systems***
+# ***Network File Systems***
 
 A Network File System (NFS) allows remote hosts to mount file systems over a network and interact with those file systems as though they are mounted locally. This enables system administrators to consolidate resources onto centralized servers on the network.
 TCP is the default transport protocol for NFS version 2 and 3 under Red Hat Enterprise Linux. UDP can be used for compatibility purposes as needed, but is not recommended for wide usage. NFSv4 requires TCP.
@@ -59,7 +60,7 @@ In order for NFS to work with a default installation of Red Hat Enterprise Linux
 The NFS initialization script and ```rpc.nfsd``` process now allow binding to any specified port during system start up. However, this can be error-prone if the port is unavailable, or if it conflicts with another daemon.
 ____________________________________________
 
-***Mail Service***
+# ***Mail Service***
 
 An electronic letter is stored in a file using a special format, and special mail programs are used to send and read the letters.
 
@@ -72,7 +73,7 @@ Postfix has several hundred configuration parameters that are controlled via the
 
 ____________________________________________
 
-***Printing Service***
+# ***Printing Service***
 
 The printer is managed by software that implements a print queue: all print jobs are put into a queue and whenever the printer is done with one job, the next one is sent to it automatically. This relieves the users from organizing the print queue and fighting over control of the printer. 
 A popular way to print in the Linux operating system is to send the file to be printed directly to the printing device. One way to do this is to use the cat command. As the root user, one could do something like
@@ -89,7 +90,7 @@ To view the contents of the print queue, the ```lpq``` command is used.
 
 ____________________________________________
 
-***DNS Service and its Configuration***
+# ***DNS Service and its Configuration***
 
 
 The Domain Name System (DNS) is a hierarchical decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It associates various information with domain names assigned to each of the participating entities. 
@@ -112,12 +113,29 @@ The screenshot below shows this process:
 
 ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Major_Services/Screen%20Shot%202017-11-04%20at%2016.26.42.png)
 ____________________________________________
+
+# TELNET
+
+Telnet is a protocol used on the Internet or local area networks to provide a bidirectional interactive text-oriented communication facility using a virtual terminal connection. User data is interspersed in-band with Telnet control information in an 8-bit byte oriented data connection.
+
+
+Telnet is a client-server protocol, based on a reliable connection-oriented transport. Typically, this protocol is used to establish a connection to Transmission Control Protocol (TCP) port number 23, where a Telnet server application (telnetd) is listening. 
+
+
+Telnet, however, predates TCP/IP and was originally run over Network Control Program (NCP) protocols.
+The syntax is to type the command telnet, the IP or hostname to connect to, and the remote port (otherwise it will default to port 23—the default port for telnet). To test a Web server instead, I would connect to the HTTP port (port 80):
+
+```$ telnet www.example.net 80```
+
+
+____________________________________________
  
- ***Resources***
+ # ***Resources***
  
 1. http://www.tldp.org/LDP/sag/html/major-services.html
 2. https://en.wikipedia.org/wiki/Cron
 3. https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Storage_Administration_Guide/ch-nfs.html
 4. https://en.wikipedia.org/wiki/Domain_Name_System
 5. http://www.postfix.org/BASIC_CONFIGURATION_README.html
-
+6. https://en.wikipedia.org/wiki/Telnet
+7. http://www.linuxjournal.com/content/troubleshooting-telnet
