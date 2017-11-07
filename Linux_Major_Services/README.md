@@ -123,7 +123,7 @@ Telnet is a client-server protocol, based on a reliable connection-oriented tran
 
 
 Telnet, however, predates TCP/IP and was originally run over Network Control Program (NCP) protocols.
-The syntax is to type the command telnet, the IP or hostname to connect to, and the remote port (otherwise it will default to port 23—the default port for telnet). To test a Web server instead, I would connect to the HTTP port (port 80):
+The syntax is to type the command telnet, the IP or hostname to connect to, and the remote port (otherwise it will default to port 23—the default port for telnet). To test is port 80 is opened on a Web server, connect to it using the following command:
 
 ```$ telnet www.example.net 80```
 
