@@ -6,43 +6,44 @@
 
 1. About IP Tables;
 2. Concepts;
-3. Other important modules on netfilter component;
-4. Resources.
+3. Netfiler Framework;
+4. PTables and Connection Tracking;
+5. Resources.
 
 -------
 # ***About IP Tables***
-Linux's iptables is a common firewall built0in into many distributions.
-Among other open source firewalls, it is standard firewall for Ubuntu, Fedora and CentOs.
-Three basic concetps that any firewall is concerned about are:
+
+ - Linux's iptables is a common firewall built0in into many distributions. Among other open source firewalls, it is standard firewall for Ubuntu, Fedora and CentOs.
+
+ - Three basic concetps that any firewall is concerned about are:
 Packet - which is a logical container representing a flow a data; 
 Port - which is a numerical designation representing a particular protocol;
 Protocol - a language and set of rules that network devices operate by. To explain the protocol, the analogy is often male to programming languages. The protocol for networing is compared to programming language for computing. 		
-Functionally, iptables discards discards network "packets" based on "chains" of rules stored in the PC's memory. These chains organize the rules anddefine the order in which they are binding.
 
-As a typical firewall, iptables controls the ports on the network where packets can enter, pass through or exit. Ports can be opened or closed for each kind of service or kind of traffic one wishes to allow. Other ports are closed for traffic one wishes to deny.
+- Functionally, iptables discards discards network "packets" based on "chains" of rules stored in the PC's memory. These chains organize the rules anddefine the order in which they are binding.
 
-Linux iptables works with "chains". Chains are groupings of rules that govern network traffic by opening and closing ports that can be applied or bound to an interface in a particular order.
-There are three types of built-in chains in the iptables:
+- As a typical firewall, iptables controls the ports on the network where packets can enter, pass through or exit. Ports can be opened or closed for each kind of service or kind of traffic one wishes to allow. Other ports are closed for traffic one wishes to deny.
+
+- The netfiler framework, of which iptables is a part of, allows the system administrator to define rules for how to deal with network packets. Rules are grouped into chains — each chain is an ordered list of rules. Chains are grouped into tables—each table is associated with a different kind of packet processing. Chains are groupings of rules that govern network traffic by opening and closing ports that can be applied or bound to an interface in a particular order.
+ 
+ - There are three main types of built-in chains in the iptables:
 INPUT - packets coming into the PC
 FORWARD - packets passing through
 OUTPUT - packets leaving the PC
 
-Below are some of the most commonly used ports. Trafic through these portsare often configured via firewall: ![Screenshot]()
+ - Below are some of the most commonly used ports. Trafic through these portsare often configured via firewall: ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Firewall_Management/some.png)
 
-The netfiler framework, of which iptables is a part of, allows the system administrator to define rules for how to deal with network packets. Rules are grouped into chains—each chain is an ordered list of rules. Chains are grouped into tables—each table is associated with a different kind of packet processing.
 
-Below are the list of directories where the lists of components of ip tables are stored:
+ - Below are the list of directories where the lists of components of ip tables are stored:
 /proc/net/ip_tables_names - the list of used tables
 /proc/net/ip_tables_targets - the list of used actions
 /proc/net/ip_tables_matches - the list of used protocols
 /proc/net/nf_conntrack (или /proc/net/ip_conntrack) - the list of opened connections and there statei
 
 
+# Concepts Used in IP Tables
 
 
-
-
-# ***Concepts Used in IP Tables&&&
 The origin of the packet determines which chain it traverses initially. There are five predefined chains (mapping to the five available Netfilter hooks), though a table may not have all chains. Predefined chains have a policy, for example DROP, which is applied to the packet if it reaches the end of the chain. The system administrator can create as many other chains as desired. These chains have no policy; if a packet reaches the end of the chain it is returned to the chain which called it. A chain may be empty.
 PREROUTING: Packets will enter this chain before a routing decision is made.
 INPUT: Packet is going to be locally delivered. It does not have anything to do with processes having an opened socket; local delivery is controlled by the "local-delivery" routing table: ip route show table local.
