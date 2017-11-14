@@ -38,8 +38,11 @@ OUTPUT - packets leaving the PC
 /proc/net/ip_tables_names - the list of used tables
 /proc/net/ip_tables_targets - the list of used actions
 /proc/net/ip_tables_matches - the list of used protocols
-/proc/net/nf_conntrack (или /proc/net/ip_conntrack) - the list of opened connections and there statei
+/proc/net/nf_conntrack (или /proc/net/ip_conntrack) - the list of opened connections and there state
 
+- Rules are placed within a specific chain of a specific table. As each chain is called, the packet in question will be checked against each rule within the chain in order. Each rule has a matching component and an action component. The matching portion of a rule specifies the criteria that a packet must meet in order for the associated action (or "target") to be executed.
+
+Rules can be placed in user-defined chains in the same way that they can be placed into built-in chains. The difference is that user-defined chains can only be reached by "jumping" to them from a rule (they are not registered with a netfilter hook themselves).
 
 # Concepts Used in IP Tables
 
@@ -75,7 +78,7 @@ NF_IP_POST_ROUTING: This hook is triggered by any outgoing or forwarded traffic 
 
 Within each iptables table, rules are further organized within separate "chains". While tables are defined by the general aim of the rules they hold, the built-in chains represent the netfilter hooks which trigger them. Chains basically determine when rules will be evaluated.
 
-As you can see, the names of the built-in chains mirror the names of the netfilter hooks they are associated with:
+The names of the built-in chains mirror the names of the netfilter hooks they are associated with:
 
 PREROUTING: Triggered by the NF_IP_PRE_ROUTING hook.
 INPUT: Triggered by the NF_IP_LOCAL_IN hook.
