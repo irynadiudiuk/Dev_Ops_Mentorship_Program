@@ -104,11 +104,12 @@ Within each iptables table, rules are further organized within separate "chains"
 
 The names of the built-in chains mirror the names of the netfilter hooks they are associated with:
 | PREROUTING   | Triggered by the NF_IP_PRE_ROUTING hook. | 
-| :-----------:|     :-------------:                      |  
+| :-----------:| :--------------------------------------: |  
 | INPUT        | Triggered by the NF_IP_LOCAL_IN hook.    | 
 | FORWARD      | Triggered by the NF_IP_FORWARD hook.     | 
 | OUTPUT       | Triggered by the NF_IP_LOCAL_OUT hook.   | 
 |POSTROUTING   | Triggered by the NF_IP_POST_ROUTING hook.|
+
 
 
 
