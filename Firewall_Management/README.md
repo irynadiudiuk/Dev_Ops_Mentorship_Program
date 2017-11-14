@@ -103,6 +103,8 @@ The following hooks represent various well-defined points in the networking stac
 Within each iptables table, rules are further organized within separate "chains". While tables are defined by the general aim of the rules they hold, the built-in chains represent the netfilter hooks which trigger them. Chains basically determine when rules will be evaluated.
 
 The names of the built-in chains mirror the names of the netfilter hooks they are associated with:
+
+
 | PREROUTING   | Triggered by the NF_IP_PRE_ROUTING hook. | 
 | :-----------:| :--------------------------------------: |  
 | INPUT        | Triggered by the NF_IP_LOCAL_IN hook.    | 
