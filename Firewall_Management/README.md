@@ -36,6 +36,8 @@
 
 
  - Below are the list of directories where the components of ip tables are stored:
+
+
 ```/proc/net/ip_tables_names``` - the list of used tables
 
 
@@ -63,13 +65,17 @@ There are five predefined chains (mapping to the five available Netfilter hooks)
 ```PREROUTING```: Packets will enter this chain before a routing decision is made.
 
 
+
 ```INPUT```: Packet is going to be locally delivered. It does not have anything to do with processes having an opened socket; local delivery is controlled by the "local-delivery" routing table: ip route show table local.
+
 
 
 ```FORWARD```: All packets that have been routed and were not for local delivery will traverse this chain.
 
 
+
 ```OUTPUT```: Packets sent from the machine itself will be visiting this chain.
+
 
 
 ```POSTROUTING```: Routing decision has been made. Packets enter this chain just before handing them off to the hardware.
@@ -93,12 +99,21 @@ There are five netfilter hooks that programs can register with. As packets progr
 
 The following hooks represent various well-defined points in the networking stack:
 
+
 ```NF_IP_PRE_ROUTING```: This hook will be triggered by any incoming traffic very soon after entering the network stack. This hook is processed before any routing decisions have been made regarding where to send the packet.
 
+
 ```NF_IP_LOCAL_IN```: This hook is triggered after an incoming packet has been routed if the packet is destined for the local system.
+
+
 ```NF_IP_FORWARD```: This hook is triggered after an incoming packet has been routed if the packet is to be forwarded to another host.
+
+
 ```NF_IP_LOCAL_OUT```: This hook is triggered by any locally created outbound traffic as soon it hits the network stack.
+
+
 ```NF_IP_POST_ROUTING```: This hook is triggered by any outgoing or forwarded traffic after routing has taken place and just before being put out on the wire
+
 
 Within each iptables table, rules are further organized within separate "chains". While tables are defined by the general aim of the rules they hold, the built-in chains represent the netfilter hooks which trigger them. Chains basically determine when rules will be evaluated.
 
@@ -124,21 +139,46 @@ The system checks each packet against a set of existing connections. It will upd
 
 
 ```NEW:```When a packet arrives that is not associated with an existing connection, but is not invalid as a first packet, a new connection will be added to the system with this label. This happens for both connection-aware protocols like TCP and for connectionless protocols like UDP.
+
+
 ```ESTABLISHED:``` A connection is changed from NEW to ESTABLISHED when it receives a valid response in the opposite direction. For TCP connections, this means a SYN/ACK and for UDP and ICMP traffic, this means a response where source and destination of the original packet are switched.
+
+
 ```RELATED:``` Packets that are not part of an existing connection, but are associated with a connection already in the system are labeled RELATED. This could mean a helper connection, as is the case with FTP data transmission connections, or it could be ICMP responses to connection attempts by other protocols.
+
+
 ```INVALID:``` Packets can be marked INVALID if they are not associated with an existing connection and aren't appropriate for opening a new connection, if they cannot be identified, or if they aren't routable among other reasons.
+
+
 ```UNTRACKED:``` Packets can be marked as UNTRACKED if they've been targeted in a raw table chain to bypass tracking.
+
+
 ```SNAT:``` A virtual state set when the source address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the source addresses back in reply packets.
+
+
 ```DNAT:``` A virtual state set when the destination address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the destination address back when routing reply packets.
 
 # ***Examples of iptables rules***
 
+
 ```iptables -F``` (or) ```iptables --flush``` - to flush all existing rules
+
+
 ```iptables -P INPUT DROP``` - sets default policy for INPUT chain
+
+
 ```iptables -P FORWARD DROP``` - sets default policy for FORWARD chain
+
+
 ```iptables -P OUTPUT DROP``` - sets default policy for OUTPUT chain
+
+
 ```iptables -A INPUT -i eth0 -s "$BLOCK_THIS_IP" -j DROP``` - blocks only TCP traffic on eth0 connection for specific ip-address
+
+
 ```iptables -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT``` - allows ALL incoming ssh connections on eth0 interface.
+
+
 ```iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state NEW,ESTABLISHED -j ACCEPT``` - allows all incoming SSH, HTTP and HTTPS traffic.
 
 The screenshot below shows the most commonly used switches:
