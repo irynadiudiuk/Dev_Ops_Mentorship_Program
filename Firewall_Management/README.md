@@ -7,7 +7,7 @@
 1. About IP Tables;
 2. Concepts;
 3. Netfiler Framework;
-4. PTables and Connection Tracking;
+4. Iptables and Connection Tracking;
 5. Examples of iptables rules;
 6. Resources.
 
@@ -105,8 +105,9 @@ Within each iptables table, rules are further organized within separate "chains"
 The names of the built-in chains mirror the names of the netfilter hooks they are associated with:
 
 
+| Chain        | Netfilter hook                           | 
+| :-----------:| :--------------------------------------: |
 | PREROUTING   | Triggered by the NF_IP_PRE_ROUTING hook. | 
-| :-----------:| :--------------------------------------: |  
 | INPUT        | Triggered by the NF_IP_LOCAL_IN hook.    | 
 | FORWARD      | Triggered by the NF_IP_FORWARD hook.     | 
 | OUTPUT       | Triggered by the NF_IP_LOCAL_OUT hook.   | 
@@ -114,34 +115,31 @@ The names of the built-in chains mirror the names of the netfilter hooks they ar
 
 
 
+# ***Iptables and Connection Tracking***
 
-PREROUTING: Triggered by the NF_IP_PRE_ROUTING hook.
+Connection tracking is applied very soon after packets enter the networking stack. 
+The raw table chains and some basic sanity checks are the only logic that is performed on packets prior to associating the packets with a connection.
 
-INPUT: Triggered by the NF_IP_LOCAL_IN hook.
-
-FORWARD: Triggered by the NF_IP_FORWARD hook.
-
-OUTPUT: Triggered by the NF_IP_LOCAL_OUT hook.
-
-POSTROUTING: Triggered by the NF_IP_POST_ROUTING hook.
-
-# ***IPTables and Connection Tracking***
-
-Connection tracking is applied very soon after packets enter the networking stack. The raw table chains and some basic sanity checks are the only logic that is performed on packets prior to associating the packets with a connection.
-
-The system checks each packet against a set of existing connections. It will update the state of the connection in its store if needed and will add new connections to the system when necessary. Packets that have been marked with the NOTRACK target in one of the raw chains will bypass the connection tracking routines.
+The system checks each packet against a set of existing connections. It will update the state of the connection in its store if needed and will add new connections to the system when necessary. Packets that have been marked with the ```NOTRACK``` target in one of the raw chains will bypass the connection tracking routines.
 
 
-NEW: When a packet arrives that is not associated with an existing connection, but is not invalid as a first packet, a new connection will be added to the system with this label. This happens for both connection-aware protocols like TCP and for connectionless protocols like UDP.
-ESTABLISHED: A connection is changed from NEW to ESTABLISHED when it receives a valid response in the opposite direction. For TCP connections, this means a SYN/ACK and for UDP and ICMP traffic, this means a response where source and destination of the original packet are switched.
-RELATED: Packets that are not part of an existing connection, but are associated with a connection already in the system are labeled RELATED. This could mean a helper connection, as is the case with FTP data transmission connections, or it could be ICMP responses to connection attempts by other protocols.
-INVALID: Packets can be marked INVALID if they are not associated with an existing connection and aren't appropriate for opening a new connection, if they cannot be identified, or if they aren't routable among other reasons.
-UNTRACKED: Packets can be marked as UNTRACKED if they've been targeted in a raw table chain to bypass tracking.
-SNAT: A virtual state set when the source address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the source addresses back in reply packets.
-DNAT: A virtual state set when the destination address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the destination address back when routing reply packets.
+```NEW:```When a packet arrives that is not associated with an existing connection, but is not invalid as a first packet, a new connection will be added to the system with this label. This happens for both connection-aware protocols like TCP and for connectionless protocols like UDP.
+```ESTABLISHED:``` A connection is changed from NEW to ESTABLISHED when it receives a valid response in the opposite direction. For TCP connections, this means a SYN/ACK and for UDP and ICMP traffic, this means a response where source and destination of the original packet are switched.
+```RELATED:``` Packets that are not part of an existing connection, but are associated with a connection already in the system are labeled RELATED. This could mean a helper connection, as is the case with FTP data transmission connections, or it could be ICMP responses to connection attempts by other protocols.
+```INVALID:``` Packets can be marked INVALID if they are not associated with an existing connection and aren't appropriate for opening a new connection, if they cannot be identified, or if they aren't routable among other reasons.
+```UNTRACKED:``` Packets can be marked as UNTRACKED if they've been targeted in a raw table chain to bypass tracking.
+```SNAT:``` A virtual state set when the source address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the source addresses back in reply packets.
+```DNAT:``` A virtual state set when the destination address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the destination address back when routing reply packets.
 
+# ***Examples of iptables rules***
 
-
+```iptables -F``` (or) ```iptables --flush``` - to flush all existing rules
+```iptables -P INPUT DROP``` - sets default policy for INPUT chain
+```iptables -P FORWARD DROP``` - sets default policy for FORWARD chain
+```iptables -P OUTPUT DROP``` - sets default policy for OUTPUT chain
+```iptables -A INPUT -i eth0 -s "$BLOCK_THIS_IP" -j DROP``` - blocks only TCP traffic on eth0 connection for specific ip-address
+```iptables -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT``` - allows ALL incoming ssh connections on eth0 interface.
+```iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state NEW,ESTABLISHED -j ACCEPT``` - allows all incoming SSH, HTTP and HTTPS traffic.
 ____________________________________________
  
  # ***Resources***
@@ -149,3 +147,4 @@ ____________________________________________
 1. https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture;
 2. https://www.youtube.com/watch?v=1PsTYAd6MiI;
 3. https://en.wikibooks.org/wiki/Communication_Networks/IP_Tables
+4. http://www.thegeekstuff.com/2011/06/iptables-rules-examples
