@@ -140,6 +140,10 @@ The system checks each packet against a set of existing connections. It will upd
 ```iptables -A INPUT -i eth0 -s "$BLOCK_THIS_IP" -j DROP``` - blocks only TCP traffic on eth0 connection for specific ip-address
 ```iptables -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT``` - allows ALL incoming ssh connections on eth0 interface.
 ```iptables -A INPUT -i eth0 -p tcp -m multiport --dports 22,80,443 -m state --state NEW,ESTABLISHED -j ACCEPT``` - allows all incoming SSH, HTTP and HTTPS traffic.
+
+The screenshot below shows the most commonly used switches:
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Firewall_Management/switches.PNG)
+
 ____________________________________________
  
  # ***Resources***
