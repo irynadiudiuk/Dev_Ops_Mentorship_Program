@@ -8,17 +8,18 @@
 2. Concepts;
 3. Netfiler Framework;
 4. PTables and Connection Tracking;
-5. Resources.
+5. Examples of iptables rules;
+6. Resources.
 
 -------
-# ***About IP Tables***
+# ***About Iptables***
 
- - Linux's iptables is a common firewall built0in into many distributions. Among other open source firewalls, it is standard firewall for Ubuntu, Fedora and CentOs.
+ - Linux's iptables is a common firewall built-in into many distributions. Among other open source firewalls, it is standard firewall for Ubuntu, Fedora and CentOs.
 
  - Three basic concetps that any firewall is concerned about are:
-Packet - which is a logical container representing a flow a data; 
-Port - which is a numerical designation representing a particular protocol;
-Protocol - a language and set of rules that network devices operate by. To explain the protocol, the analogy is often male to programming languages. The protocol for networing is compared to programming language for computing. 		
+```Packet``` - which is a logical container representing a flow a data; 
+```Port``` - which is a numerical designation representing a particular protocol;
+```Protocol``` - a language and set of rules that network devices operate by. To explain the protocol, the analogy is often male to programming languages. The protocol for networing is compared to programming language for computing. 		
 
 - Functionally, iptables discards discards network "packets" based on "chains" of rules stored in the PC's memory. These chains organize the rules anddefine the order in which they are binding.
 
