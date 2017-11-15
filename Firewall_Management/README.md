@@ -25,7 +25,7 @@
 ```Port``` - which is a numerical designation representing a particular protocol;
 
 
-```Protocol``` - a language and set of rules that network devices operate by. To explain the protocol, the analogy is often made to programming languages. The protocol for networing is compared to programming language for computing. 		
+```Protocol``` - a language and set of rules that network devices operate by. To explain the protocol, there is a close analogy between protocols and programming languages: protocols are to communications what programming languages are to computations.
 
 - As a typical firewall, iptables controls the ports on the network where packets can enter, pass through or exit. Ports can be opened or closed for each kind of service or kind of traffic one wishes to allow. Other ports are closed for traffic one wishes to deny.
 
