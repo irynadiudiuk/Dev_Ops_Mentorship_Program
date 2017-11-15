@@ -160,7 +160,7 @@ The iptables firewall is stateful, meaning that packets are evaluated in regards
 ```The Security Table```
 The security table is used to set internal SELinux security context marks on packets, which will affect how SELinux or other systems that can interpret SELinux security contexts handle the packets. These marks can be applied on a per-packet or per-connection basis.
 
-Now that the concepts of chains, tables and states are explained we can take a look at the picture displaying the order the packet is routed to and from any of the chains going though each of the tables and also picturing the state the connection is in at a certain step. This picture is mapping the work of netfilter to the OSI model. Iptables work on Network layer.
+Now that the concepts of chains, tables and states are explained we can take a look at the picture displaying the order the packet is routed to and from any of the chains going though the tables of Iptables. This picture maps the functionality of Netfilter to the OSI model. Iptables works on Network layer.
 ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Firewall_Management/iptables%20detailed.png)
 
 
@@ -201,4 +201,4 @@ ____________________________________________
 4. http://www.thegeekstuff.com/2011/06/iptables-rules-examples
 5. https://www.youtube.com/watch?v=1PsTYAd6MiI&t=307s
 6. http://www.k-max.name/linux/netfilter-iptables-v-linux/
-
+7. https://www.globo.tech/learning-center/linux-native-firewall-introduction-to-iptables/
