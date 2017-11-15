@@ -8,8 +8,9 @@
 2. Concepts;
 3. Netfiler Framework;
 4. Iptables and Connection Tracking;
-5. Examples of iptables rules;
-6. Resources.
+5. Available Tables;
+6. Examples of iptables rules;
+7. Resources.
 
 -------
 # ***About Iptables***
@@ -157,6 +158,27 @@ The system checks each packet against a set of existing connections. It will upd
 
 
 ```DNAT:``` A virtual state set when the destination address has been altered by NAT operations. This is used by the connection tracking system so that it knows to change the destination address back when routing reply packets.
+
+# ***Available Tables***
+
+```The Filter Table```
+The filter table is one of the most widely used tables in iptables and a default one in case ```-t``` option is not used. 
+The filter table is used to make decisions about whether to let a packet continue to its intended destination or to deny its request. 
+
+
+```The NAT Table```
+The nat table is used to implement network address translation rules. As packets enter the network stack, rules in this table will determine whether and how to modify the packet's source or destination addresses in order to impact the way that the packet and any response traffic are routed.
+
+```The Mangle Table```
+The mangle table is used to alter the IP headers of the packet in various ways. For instance, you can adjust the TTL (Time to Live) value of a packet, either lengthening or shortening the number of valid network hops the packet can sustain. Other IP headers can be altered in similar ways. 
+
+```The Raw Table```
+The iptables firewall is stateful, meaning that packets are evaluated in regards to their relation to previous packets. The connection tracking features built on top of the netfilter framework allow iptables to view packets as part of an ongoing connection or session instead of as a stream of discrete, unrelated packets. Its only purpose is to provide a mechanism for marking packets in order to opt-out of connection tracking.
+
+```The Security Table```
+The security table is used to set internal SELinux security context marks on packets, which will affect how SELinux or other systems that can interpret SELinux security contexts handle the packets. These marks can be applied on a per-packet or per-connection basis.
+
+
 
 # ***Examples of iptables rules***
 
