@@ -17,7 +17,7 @@
 
  - Linux's iptables is a common firewall built-in as a default one into many distributions.
 
- - Three basic concetps that any firewall is concerned about are:
+ - Two basic concetps that any firewall is concerned about are:
 
 
 ```Packet``` - which is a logical container representing a flow a data; 
@@ -25,33 +25,12 @@
 
 ```Port``` - which is a numerical designation representing a particular protocol;
 
-
-```Protocol``` - a language and set of rules that network devices operate by. To explain the protocol, there is a close analogy between protocols and programming languages: protocols are to communications what programming languages are to computations.
-
-- As a typical firewall, iptables controls the ports on the network where packets can enter, pass through or exit. Ports can be opened or closed for each kind of service or kind of traffic one wishes to allow. Other ports are closed for traffic one wishes to deny.
+- As a typical firewall, iptables controls traffic on the particular host where packets can enter, pass through or exit. Ports can be opened or closed for each kind of service or kind of traffic one wishes to allow. Other ports are closed for traffic one wishes to deny.
 
 
 - The netfiler framework, of which iptables is a part of, allows the system administrator to define rules for how to deal with network packets. Rules are grouped into chains — each chain is an ordered list of rules. Chains are grouped into tables — each table is associated with a different kind of packet processing. Chains are groupings of rules that govern network traffic by opening and closing ports that can be applied or bound to an interface in a particular order.
 
- - Below are some of the most commonly used ports. Traffic access to these ports are often configured via firewall: ![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Firewall_Management/some.png)
-
-
- - Below are the list of directories where the components of ip tables are stored:
-
-
-```/proc/net/ip_tables_names``` - the list of used tables
-
-
-```/proc/net/ip_tables_targets``` - the list of used actions
-
-
-```/proc/net/ip_tables_matches``` - the list of used protocols
-
-
-```/proc/net/nf_conntrack``` (or ```/proc/net/ip_conntrack```) - the list of opened connections and there state
-
-
-
+ 
 - Rules are placed within a specific chain of a specific table. As each chain is called, the packet in question will be checked against each rule within the chain in order. Each rule has a matching component and an action component. The matching portion of a rule specifies the criteria that a packet must meet in order for the associated action (or "target") to be executed.
 
 - Rules can be placed in user-defined chains in the same way that they can be placed into built-in chains. The difference is that user-defined chains can only be reached by "jumping" to them from a rule (they are not registered with a netfilter hook themselves).
