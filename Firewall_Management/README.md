@@ -60,6 +60,9 @@ There are five predefined chains (mapping to the five available Netfilter hooks)
 
 ```POSTROUTING```: Routing decision has been made. Packets enter this chain just before handing them off to the hardware.
 
+Iptables is made up of 5 tables, each associated to specific functionalities of the net filter and each split into several “chains”, specifying the functionalities of each table further. Below you can see the picture dispaying the way the packets are routed between the 5 pre-defined chains without detailed devision showing the order of the tables:
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Firewall_Management/scheme.png)
+
 
 The packet continues to traverse the chain until either a rule matches the packet and decides the ultimate fate of the packet, for example by calling one of the ```ACCEPT``` or ```DROP```, or a module returning such an ultimate fate; or
 a rule calls the ```RETURN``` verdict, in which case processing returns to the calling chain; or
@@ -156,6 +159,9 @@ The iptables firewall is stateful, meaning that packets are evaluated in regards
 
 ```The Security Table```
 The security table is used to set internal SELinux security context marks on packets, which will affect how SELinux or other systems that can interpret SELinux security contexts handle the packets. These marks can be applied on a per-packet or per-connection basis.
+
+Now that the concepts of chains, tables and states are explained we can take a look at the picture displaying the order the packet is routed to and from any of the chains going though each of the tables and also picturing the state the connection is in at a certain step. This picture is mapping the work of netfilter to the OSI model. Iptables work on Network layer.
+![Screenshot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Firewall_Management/iptables%20detailed.png)
 
 
 
