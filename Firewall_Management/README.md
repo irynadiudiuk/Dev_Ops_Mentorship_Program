@@ -14,7 +14,7 @@
 -------
 # ***About Iptables***
 
- - Linux's iptables is a common firewall built-in into many distributions. Among other open source firewalls, it is standard firewall for Ubuntu, Fedora and CentOs.
+ - Linux's iptables is a common firewall built-in as a default one into many distributions.
 
  - Three basic concetps that any firewall is concerned about are:
 
