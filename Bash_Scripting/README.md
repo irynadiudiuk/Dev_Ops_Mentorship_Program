@@ -1,8 +1,9 @@
 #!/bin/bash
 
  # Description:
- # This service when started will create a file "rc2file" on rc 2.
+ # This service when started will create a file "rc2file" and start infinite loop.
  # When the service is stopped the file will be deleted.
+ # When script is called with status parameter, it is checked if the process is running.
  # Get function from functions library
 
  . /etc/init.d/functions
