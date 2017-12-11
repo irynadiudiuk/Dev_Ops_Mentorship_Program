@@ -1,0 +1,100 @@
+[iryna@localhost ~]$ sudo cat /etc/init.d/initscript
+#!/bin/bash
+#
+. /etc/init.d/functions
+
+SERVICE_USAGE="Usage: $0 {start|stop|status|restart}"
+FILE=/home/iryna/NEWFILE
+LOOP=/home/iryna/loopfile
+
+service_pid() {
+        echo `ps -fe | grep $LOOP | grep -v grep | tr -s " "|cut -d" " -f2`| tail -1
+}
+
+start() {
+    # Check is the service is running
+  pid=$(service_pid)
+  if [ -n "$pid" ]  ; then
+    echo -e "Service is already running (pid: $pid)"
+    if [ -f $FILE ] ; then
+     echo -n  "... and $FILE exists."
+    else
+     echo -n "...However, file did not exit, so now it will be created"
+     echo -n "$FILE is created" | tee $FILE
+    fi
+  else
+    # Start service
+    echo -n "...Starting service"
+    echo
+    echo -n -e "$FILE is created" | tee $FILE
+    echo
+    daemon /home/iryna/loopfile &
+    exit 0
+    echo
+ #  daemon /home/iryna/loopfile && echo "123123"
+  fi
+ # daemon /home/iryna/loopfile &
+
+}
+
+status(){
+          pid=$(service_pid)
+          if [ -n "$pid" ] ; then
+            echo -e "Service is running with pid: $pid"
+          else
+            echo -e "Service is not running"
+            return 1
+          fi
+}
+
+stop() {
+  pid=$(service_pid)
+  if [ -n "$pid" ] ; then
+    echo -e "Stoping Service"
+       if [ -f $FILE ] ; then
+          kill $pid  && echo "$FILE was deleted"
+       else
+          echo "Nothing to delete"
+       fi
+  else
+    echo -e "Service was not running"
+       if  [ -f $FILE ] ; then
+           echo  "...however, $FILE existed, so it will be removed"
+           rm -f $FILE && echo "removed"
+       else
+           echo "... and file did not exist, so nothing to delete here..."
+       fi
+    echo
+  fi
+}
+
+# Restart myservice
+  restart() {
+  $0 stop
+  $0 start
+
+}
+
+
+case $1 in
+    start)
+      start
+    ;;
+    stop)
+      stop
+    ;;
+    restart)
+      stop
+      start
+    ;;
+    status)
+        status
+        exit $?
+    ;;
+
+        *)
+        echo "$SERVICE_USAGE"
+   exit 1
+esac
+exit 0
+
