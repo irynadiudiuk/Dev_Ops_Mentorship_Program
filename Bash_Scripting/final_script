@@ -1,0 +1,136 @@
+cat /etc/init.d/initscript
+#!/bin/bash
+#
+. /etc/init.d/functions
+
+SERVICE_USAGE="Usage: $0 {start|stop|status|restart}"
+FILE=/home/iryna/NEWFILE
+nginx="/usr/sbin/nginx"
+prog=$(basename $nginx)
+
+sysconfig="/etc/sysconfig/$prog"
+lockfile="/var/lock/subsys/nginx"
+pidfile="/var/run/${prog}.pid"
+NGINX_CONF_FILE="/etc/nginx/nginx.conf"
+
+service_pid() {
+        echo `ps -fe | grep $nginx | grep -v grep | tr -s " "|cut -d" " -f2`| tail -1
+}
+
+start() {
+    # Check is the service is running
+  pid=$(service_pid)
+  if [ -n "$pid" ]  ; then
+    echo -e "Service is already running (pid: $pid)"
+    if [ -f $FILE ] ; then
+     echo -n  "... and $FILE exists."
+    else
+     echo -n "...However, file did not exit, so now it will be created"
+     echo -n "$FILE is created" | tee $FILE
+    fi
+  else
+    # Start service
+     echo -n "...Starting service"
+    if [ -f $FILE ] ; then
+     echo -n  "...however $FILE existed"
+    else
+     echo
+     echo -n "$FILE is created" | tee $FILE
+    fi
+    [ -x $nginx ] || exit 5
+    [ -f $NGINX_CONF_FILE ] || exit 6
+    daemon $nginx -c $NGINX_CONF_FILE
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+    return $retval
+    echo
+    exit 0
+    echo
+   fi
+
+}
+
+status(){
+          pid=$(service_pid)
+          if [ -n "$pid" ] ; then
+            echo -e "Service is running with pid: $pid"
+             if [ -f $FILE ] ; then
+               echo -n "$FILE exists"
+               echo
+             else
+               echo -n "...however $FILE does not exist"
+               echo
+             fi
+          else
+            echo -e "Service is not running"
+            echo
+            if [ -f $FILE ] ; then
+              echo -n "... however $FILE exists"
+              echo
+            else
+              echo -n "...and $FILE does not exist"
+              echo
+            fi
+            return 1
+          fi
+}
+
+stop() {
+  pid=$(service_pid)
+  if [ -n "$pid" ] ; then
+    echo -e "Stoping Service"
+       if [ -f $FILE ] ; then
+          rm -rf $FILE
+          echo -n "$FILE was deleted"
+       else
+          echo "Nothing to delete"
+       fi
+    killproc -p $pidfile $prog
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile
+    return $retval
+
+  else
+    echo -e "Service was not running"
+       if  [ -f $FILE ] ; then
+           echo  "...however, $FILE existed, so it will be removed"
+           rm -f $FILE && echo "removed"
+       else
+           echo "... and file did not exist, so nothing to delete here..."
+           echo
+       fi
+    echo
+  fi
+}
+
+# Restart myservice
+  restart() {
+  $0 stop
+  $0 start
+
+}
+
+
+case $1 in
+    start)
+      start
+    ;;
+    stop)
+      stop
+    ;;
+    restart)
+      stop
+      start
+    ;;
+    status)
+        status
+        exit $?
+    ;;
+
+        *)
+        echo "$SERVICE_USAGE"
+   exit 1
+esac
+exit 0
