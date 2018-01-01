@@ -10,7 +10,7 @@ This script works with three files.
 The task is to take a line from content.txt and insert it instead of the string "toreplace" in the template file.
 Then template file is after that renamed, saved and zipped. The zipped file is after that renamed with a help of names.txt
 
-#Replacearvchive.py
+# Replacearvchive.py
 
 This Python script works with two files.
 1. content.txt
