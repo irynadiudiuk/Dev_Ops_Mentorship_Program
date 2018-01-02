@@ -19,3 +19,8 @@ This Python script works with two files.
 It has the same task as Replacearchive.sh (to insert the line from content.txt and then insert in into template.txt, zip it 
 and rename the zipped file).
 
+# makedp.sh
+This bash script works with two files.
+1. content.txt
+2. template.txt
+It creates a new file and inserts a correct client name into the correct place, zips the file and renames it.
