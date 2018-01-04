@@ -24,3 +24,9 @@ This bash script works with two files.
 1. content.txt
 2. template.txt
 It creates a new file and inserts a correct client name into the correct place, zips the file and renames it.
+
+
+# cycle.sh
+it makes a REST API call to Splunk management port and run the search query on the server.
+this search looks for the output within the last 30 days.
+The output is then redirected to a file final.res
