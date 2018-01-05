@@ -18,8 +18,8 @@ Systemd introduces the concept of systemd units. Systemd has only limited suppor
 The systemctl utility does not support custom commands. It does not communicate with services that have not been started by systemd.
 
 Here is the list of comparison of the main commands used in Sys V and Sytemd init systems:
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/2.png)
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/3.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/2.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/3.png)
 
 ____________________________________________
 
@@ -41,8 +41,8 @@ _____________________
 The script should be executable that is why one of the following commands needs to be used ```sudo chmod 755 checker.sh``` or ```chmod a+x checker.sh```, you need to insert the name of your script instead of "checker.sh" it is used here as an example.
 This script can be placed in any directory.
 Below you can see the screenshot of this script.
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/ll.checker.sh.png)
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/checker.sh.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/ll.checker.sh.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/checker.sh.png)
 
 ____________________
 2. Second step is to prepare the unit file.  
@@ -52,11 +52,11 @@ Every unit in systemd has a definite structure. It includes the desctiption of t
 The structure of the unit files in described in detail by the following link: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-managing_services_with_systemd-unit_files 
 
 Below you can see the structure of *checker.service* unit.
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/unit.file.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/unit.file.png)
 
 The WantedBy option in the [INSTALL] section indicates that the unit with start after the system reaches the default target. To check what target in the default one on your system use ```systemctl get-default```. Below are the screenshots displying the output of this command:
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/graphical.png)
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/multiuser.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/graphical.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/multiuser.png)
 
 
 The *graphical.target* can be compared to the runlevel 5 on the sys V init system. It is the default target for the Ubuntu Desktop Installation.
@@ -70,12 +70,12 @@ It is important to use the ```systemctl daemon-reload``` command after creating 
 
 
 Checker is the name of the service we use in this example. You need to insert the appropriate name of the service you would like to enable instead of "checker" in this command. Below in the screenshot of this command:
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/symlink.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/symlink.png)
 
 On the screenshot you can see that the symlink is created from the ***/etc/systemd/system/default.target.wants/*** to the ***/etc/systemd/system/checker.service***.
 The message about creation on soft link is an indicator that the service in enabled. To check the status of the service use the command ```systemctl status checker.service``` (do not forget to replace the name of the service with the correct one for you).
 To view the list of all enabled services the the command: ```systemctl list-unit-files --type service --state enabled```. Below is the screenshot displaying the output:
-![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/SystemD/checker.png)
+![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/checker.png)
 
  
  ***Resources***
