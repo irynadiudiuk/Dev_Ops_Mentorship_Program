@@ -54,7 +54,7 @@ The structure of the unit files in described in detail by the following link: ht
 Below you can see the structure of *checker.service* unit.
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/unit.file.png)
 
-The WantedBy option in the [INSTALL] section indicates that the unit with start after the system reaches the default target. To check what target in the default one on your system use ```systemctl get-default```. Below are the screenshots displying the output of this command:
+The WantedBy option in the [INSTALL] section indicates that the unit will start after the system reaches the default target. To check what target in the default one on your system use ```systemctl get-default```. Below are the screenshots displying the output of this command:
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/graphical.png)
 ![ScreenShot](https://github.com/irynadiudiuk/Linux_Fundamentals/blob/master/Linux_Processes/SystemD/multiuser.png)
 
