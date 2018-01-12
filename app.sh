@@ -19,7 +19,7 @@ cat ${input} | while read str
         if [ ! -d /8/etc/8-apps/inputs_$client ]; then
           mkdir /home/8/forapps/inputs_$client
           echo "created a new directory -- inputs_$client" >> created_app_list
-          cp -R /home/ne2282421/forapps/windows_template_app/* /home/8/forapps/inputs_$client
+          cp -R /home/dd/forapps/windows_template_app/* /home/8/forapps/inputs_$client
         else
           echo "inputs_${client} already exists" >> already_existed_apps
 read
