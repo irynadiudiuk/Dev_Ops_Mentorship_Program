@@ -8,9 +8,6 @@
   gather_facts: yes
 
 - hosts: tomcat
-  remote_user: root
-  become: yes
-  become_method: sudo
   pre_tasks:
     - debug: msg={{http_port}}
   roles:
@@ -18,16 +15,10 @@
     - tomcat
 
 - hosts: apache
-  remote_user: root
-  become: yes
-  become_method: sudo
   roles:
     - apache
 
-- name: nginx
-  hosts: nginx
-  become: yes
-  become_method: sudo
+- hosts: nginx
   roles:
     - nginx
     - php
