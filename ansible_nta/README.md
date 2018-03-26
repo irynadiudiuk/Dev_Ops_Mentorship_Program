@@ -1,6 +1,6 @@
 ## Nginx as Reverse Proxy for Apache and Tomcat servers 
 
-- Requires Ansible 2.7 or newer
+- Requires Ansible 2.4 or newer and Python 2.7
 - Expects CentOS/RHEL 7.x hosts
 
 
