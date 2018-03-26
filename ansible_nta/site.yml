@@ -1,5 +1,5 @@
 ---
-# This playbook deploys a simple standalone Tomcat 7 server.
+# This playbook deploys a simple standalone Tomcat 7 server, Apache HTTP Server and Nginx server.
 
 - hosts: all
   remote_user: root
