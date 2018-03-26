@@ -1,0 +1,33 @@
+---
+# This playbook deploys a simple standalone Tomcat 7 server.
+
+- hosts: all
+  remote_user: root
+  become: yes
+  become_method: sudo
+  gather_facts: yes
+
+- hosts: tomcat
+  remote_user: root
+  become: yes
+  become_method: sudo
+  pre_tasks:
+    - debug: msg={{http_port}}
+  roles:
+    - selinux
+    - tomcat
+
+- hosts: apache
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - apache
+
+- name: nginx
+  hosts: nginx
+  become: yes
+  become_method: sudo
+  roles:
+    - nginx
+    - php
