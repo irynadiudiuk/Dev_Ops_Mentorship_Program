@@ -1,29 +1,23 @@
-## Standalone Tomcat Deployment
+## Nginx as Reverse Proxy for Apache and Tomcat servers 
 
-- Requires Ansible 1.2 or newer
-- Expects CentOS/RHEL 6.x hosts
+- Requires Ansible 2.7 or newer
+- Expects CentOS/RHEL 7.x hosts
 
-These playbooks deploy a very basic implementation of Tomcat Application Server,
-version 7. To use them, first edit the "hosts" inventory file to contain the
-hostnames of the machines on which you want Tomcat deployed, and edit the 
-group_vars/tomcat-servers file to set any Tomcat configuration parameters you need.
 
-Then run the playbook, like this:
+This playbook deploy a very basic implementation of Nginx Web Server in a role of a reverse proxy for Apache and Tomcat application servers,
+
+To use this playbook we first create environment using Vargant 2.0.1.
+Our environment consists of thee instances:
+1. nginx - 192.168.60.4
+2. apache - 192.168.60.5
+3. tomcat - 192.168.60.6
+
+Each of these instances belong of a group with the same name that is defined in the inventory file created in root directoryof the project.
+
+
+To run the playbook, use the following command:
 
 	ansible-playbook -i hosts site.yml
 
-When the playbook run completes, you should be able to see the Tomcat
-Application Server running on the ports you chose, on the target machines.
+When the playbook run completes, you should be able to see that Nginx server (192.168.60.4) on port 8001 redirects to Apache Tomcat while typing port 8002 you will be re-directed to Apache HTTP Server.
 
-This is a very simple playbook and could serve as a starting point for more
-complex Tomcat-based projects. 
-
-### Ideas for Improvement
-
-Here are some ideas for ways that these playbooks could be extended:
-
-- Write a playbook to deploy an actual application into the server.
-- Deploy Tomcat clustered with a load balancer in front.
-
-We would love to see contributions and improvements, so please fork this
-repository on GitHub and send us your changes via pull requests.
