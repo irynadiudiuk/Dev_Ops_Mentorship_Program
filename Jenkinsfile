@@ -22,7 +22,6 @@ pipeline {
                 print 'DEBUG: parameter isForUpload = ' + params.isForUpload
                 print "DEBUG: parameter isForUpload = ${params.isForUpload}"
                 sh "echo sh isForUpload is ${params.isForUpload}"
-                  }
                 when {
                 // Only upload when isForUpload is true
                 expression { return token ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/ }
