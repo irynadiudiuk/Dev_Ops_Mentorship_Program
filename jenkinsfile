@@ -1,4 +1,3 @@
-\\ this is a jenkins file
 
 pipeline {
     agent none 
