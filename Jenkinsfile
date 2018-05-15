@@ -18,6 +18,10 @@ pipeline {
         }
         stage('S3 upload') {
             agent { label 'ja2' } 
+              when {
+                // Only upload when isForUpload is true
+                expression { params.isForUpload }
+            }
             steps {
                 print 'DEBUG: parameter isForUpload = ' + params.isForUpload
                 print "DEBUG: parameter isForUpload = ${params.isForUpload}"
