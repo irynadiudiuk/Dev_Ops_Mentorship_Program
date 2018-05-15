@@ -4,6 +4,9 @@ pipeline {
     parameters {
         string(name: 'S3', defaultValue: 'super-original-name-for-task-bucket-1-upload')
     }
+    parameters {
+        string(name: 'datefilename', defaultValue: 'datefile', description: 'this is the name of the file created by date.sh')
+    }
     stages {
         stage('Executing shell script') {
             agent { label 'ja2' } 
@@ -23,8 +26,7 @@ pipeline {
             agent { label 'ja2' } 
             steps {
                 echo '...we are uploading file to S3'
-                s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: "$FILE", path: '.', metadatas: [''], sseAlgorithm: '', workingDir: ''
-                sh 'java -version'
+                s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: "${params.datefilename}", path: '.', metadatas: [''], sseAlgorithm: '', workingDir: ''
                 deleteDir()
                 emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'
             }
