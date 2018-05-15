@@ -4,7 +4,7 @@ pipeline {
     parameters {
         string(name: 'S3', defaultValue: 'super-original-name-for-task-bucket-1-upload')
         string(name: 'datefilename', defaultValue: 'datefile', description: 'this is the name of the file created by date.sh')
-        booleanParam(name: 'UPLOAD_TO_S3', defaultValue: true, description: 'to upload or not to upload...')
+        booleanParam(name: 'UPLOAD_TO_S3', defaultValue: false, description: 'to upload or not to upload...')
     }
     stages {
         stage('Executing shell script') {
