@@ -1,4 +1,3 @@
-
 pipeline {
     agent none 
     parameters {
@@ -19,13 +18,7 @@ pipeline {
         stage('S3 upload') {
             agent { label 'ja2' } 
             steps {
-                print 'DEBUG: parameter isForUpload = ' + params.isForUpload
-                print "DEBUG: parameter isForUpload = ${params.isForUpload}"
                 sh "echo sh isForUpload is ${params.isForUpload}"
-                when {
-                // Only upload when isForUpload is true
-                expression { return token ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/ }
-            }
                 echo '...we are uploading file to S3'
                 s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: "${params.datefilename}", path: '.', metadatas: [''], sseAlgorithm: '', workingDir: ''
                 deleteDir()
