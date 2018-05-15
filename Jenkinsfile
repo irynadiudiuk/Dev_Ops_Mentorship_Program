@@ -3,8 +3,6 @@ pipeline {
     agent none 
     parameters {
         string(name: 'S3', defaultValue: 'super-original-name-for-task-bucket-1-upload')
-    }
-    parameters {
         string(name: 'datefilename', defaultValue: 'datefile', description: 'this is the name of the file created by date.sh')
     }
     stages {
