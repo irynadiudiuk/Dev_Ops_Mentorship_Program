@@ -13,12 +13,7 @@ pipeline {
                 echo '...cloning GIT repository'
                 git 'https://github.com/irynadiudiuk/Dev_Ops_Mentorship_Program.git'
                 sh './date.sh' 
-                sh 'ls -al'
-                sh 'export FILE=$(ls file.*)'
-                script {
-                    FILE = sh (returnStdout: true, script: "ls file.*").trim()
-                }
-            }
+                  }
         }
         stage('S3 upload') {
             agent { label 'ja2' } 
