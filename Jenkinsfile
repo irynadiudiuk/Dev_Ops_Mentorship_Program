@@ -12,7 +12,7 @@ pipeline {
             steps {
                 deleteDir()
                 echo '...cloning GIT repository'
-                git 'https://github.com/irynadiudiuk/Dev_Ops_Mentorship_Program.git'
+                git 'https://idiudiuk@bitbucket.org/idiudiuk/program.git'
                 sh './date.sh' 
                   }
         }
